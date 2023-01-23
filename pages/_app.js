@@ -1,8 +1,8 @@
 import GlobalStyle from "@/styles";
-import Head from "next/head";
+
 import styled from "styled-components";
 import Donations from "../db.json";
-import { useState } from "react";
+
 import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {

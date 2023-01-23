@@ -1,9 +1,5 @@
-import Donation from "../db.json";
 import styled from "styled-components";
 import Head from "next/head";
-import { useState } from "react";
-import { CheckedBox } from "@/components/icons";
-import { UnCheckedBox } from "@/components/icons";
 
 export default function HomePage({ donations }) {
   return (
