@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "image": "imageUpload",
+    "category": "Selbstgemacht",
+    "description": "Selbstgekochte Tomatensuppe mit Basilikum",
+    "distance": "500 Meter",
+    "good_before": "4 Tage",
+    "contact_information": "hello@gmail.com",
+    "bio": true,
+    "vegetarisch": true,
+    "vegan": true,
+    "glutenfrei": true
+  },
+
+  {
+    "id": 1,
+    "image": "imageUpload",
+    "category": "Obst&Gemüse",
+    "description": "2 Mangos",
+    "distance": "1,7 km",
+    "good_before": "3 Tage",
+    "contact_information": "helloagain@gmail.com",
+    "bio": true,
+    "vegetarisch": true,
+    "vegan": true,
+    "glutenfrei": true
+  },
+  {
+    "id": 2,
+    "image": "imageUpload",
+    "category": "Backwaren",
+    "description": "Vollkornbrot",
+    "distance": "2,2 km",
+    "good_before": "2 Tage",
+    "contact_information": "hallöchen@gmail.com",
+    "bio": true,
+    "vegetarisch": true,
+    "vegan": true,
+    "glutenfrei": true
+  }
+]
