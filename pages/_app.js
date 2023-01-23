@@ -1,13 +1,12 @@
 import GlobalStyle from "@/styles";
-
 import styled from "styled-components";
-import Donations from "../db.json";
+import donations from "../db.json";
 
 import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
   const [donations, setDonations] = useLocalStorageState("donations", {
-    defaultValue: [...Donations],
+    defaultValue: [...donations],
   });
   function createDonation(donation) {
     setDonations([...donations, donation]);
