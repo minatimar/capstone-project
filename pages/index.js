@@ -2,6 +2,8 @@ import Donation from "../db.json";
 import styled from "styled-components";
 import Head from "next/head";
 import { useState } from "react";
+import { CheckedBox } from "@/components/icons";
+import { UnCheckedBox } from "@/components/icons";
 
 export default function HomePage({ donations }) {
   return (
@@ -10,30 +12,11 @@ export default function HomePage({ donations }) {
         {donations.map((donation) => (
           <StyledCard key={donation.id}>
             <p>{donation.image}</p>
-            <p>{donation.category}</p>
-            <p>{donation.description}</p>
-            <p>{donation.distance}</p>
-            <p>{donation.good_before}</p>
-            <p>{donation.contact_information}</p>
-            {/* <label htmlFor="html">bio</label> */}
-            <input type="checkbox" name="" id="" checked={donation.tag1} />
-            {/*
-            <input
-              type="checkbox"
-              name=""
-              id=""
-              checked={css}
-              onChange={(e) => setCss(e.target.checked)}
-            />
-            <label htmlFor="html">Flexbox</label>
-            <input
-              type="checkbox"
-              name=""
-              id=""
-              checked={flexbox}
-              onChange={(e) => setFlexbox(e.target.checked)}
-            />
-            */}
+            <p>Kategorie: {donation.category}</p>
+            <p>Beschreibung: {donation.description}</p>
+            <p>Entfernung: {donation.distance}</p>
+            <p>Haltbar bis: {donation.good_before}</p>
+            <p>Kontakt: {donation.contact_information}</p>
           </StyledCard>
         ))}
       </StyledList>

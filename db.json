@@ -7,10 +7,10 @@
     "distance": "500 Meter",
     "good_before": "4 Tage",
     "contact_information": "hello@gmail.com",
-    "tag1": true,
-    "tag2": true,
-    "tag3": true,
-    "tag4": true
+    "bio": true,
+    "vegetarisch": true,
+    "vegan": true,
+    "glutenfrei": true
   },
 
   {
@@ -21,12 +21,11 @@
     "distance": "1,7 km",
     "good_before": "3 Tage",
     "contact_information": "helloagain@gmail.com",
-    "tag1": true,
-    "tag2": true,
-    "tag3": true,
-    "tag4": true
+    "bio": true,
+    "vegetarisch": true,
+    "vegan": true,
+    "glutenfrei": true
   },
-
   {
     "id": 2,
     "image": "imageUpload",
@@ -35,9 +34,9 @@
     "distance": "2,2 km",
     "good_before": "2 Tage",
     "contact_information": "hallöchen@gmail.com",
-    "tag 1": true,
-    "tag 2": true,
-    "tag 3": true,
-    "tag 4": true
+    "bio": true,
+    "vegetarisch": true,
+    "vegan": true,
+    "glutenfrei": true
   }
 ]
