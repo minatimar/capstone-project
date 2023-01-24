@@ -2,54 +2,64 @@ import styled from "styled-components";
 import { useState } from "react";
 import donations from "../db.json";
 
-export default function MoreInfoButton() {
-  const [moreInfo, setMoreInfo] = useState(false);
+export default function InfoButton() {
+  const [moreInfo, setMoreInfo] = useState(donations);
 
-  function handleClick() {
-    setMoreInfo(!moreInfo);
+  function handleClick(id) {
+    setMoreInfo(
+      moreInfo.map((oneDonation) => {
+        if (oneDonation.id === id) {
+          return { ...oneDonation, isShown: !isShown };
+        } else {
+          return oneDonation;
+        }
+      })
+    );
+
+    return (
+      <StyledDiv>
+        {moreInfo.map((info) => {
+          return moreInfo.isShown ? (
+            <StyledList>
+              {donations.map((donation) => (
+                <StyledCard key={donation.id}>
+                  <p>{donation.image}</p>
+                  <p>Kategorie: {donation.category}</p>
+                  <p>Beschreibung: {donation.description}</p>
+                  <p>Entfernung: {donation.distance}</p>
+                  <p>Haltbar bis: {donation.good_before}</p>
+                  <p>Kontakt: {donation.contact_information}</p>
+
+                  <StyledLessInfoButton
+                    type="button"
+                    onClick={() => handleClick(donation.id)}
+                  >
+                    Weniger Infos
+                  </StyledLessInfoButton>
+                </StyledCard>
+              ))}
+            </StyledList>
+          ) : (
+            <StyledList>
+              {donations.map((donation) => (
+                <StyledCard key={donation.id}>
+                  <p>{donation.image}</p>
+                  <p>Beschreibung: {donation.description}</p>
+                  <p>Entfernung: {donation.distance}</p>
+                  <StyledMoreInfoButton
+                    type="button"
+                    onClick={() => handleClick(donation.id)}
+                  >
+                    Mehr Infos
+                  </StyledMoreInfoButton>
+                </StyledCard>
+              ))}
+            </StyledList>
+          );
+        })}
+      </StyledDiv>
+    );
   }
-
-  return (
-    <StyledDiv>
-      {moreInfo ? (
-        <StyledList>
-          {donations.map((donation) => (
-            <StyledCard key={donation.id}>
-              <p>{donation.image}</p>
-              <p>Kategorie: {donation.category}</p>
-              <p>Beschreibung: {donation.description}</p>
-              <p>Entfernung: {donation.distance}</p>
-              <p>Haltbar bis: {donation.good_before}</p>
-              <p>Kontakt: {donation.contact_information}</p>
-
-              <StyledLessInfoButton
-                type="button"
-                onClick={() => handleClick(donation.id)}
-              >
-                Weniger Infos
-              </StyledLessInfoButton>
-            </StyledCard>
-          ))}
-        </StyledList>
-      ) : (
-        <StyledList>
-          {donations.map((donation) => (
-            <StyledCard key={donation.id}>
-              <p>{donation.image}</p>
-              <p>Beschreibung: {donation.description}</p>
-              <p>Entfernung: {donation.distance}</p>
-              <StyledMoreInfoButton
-                type="button"
-                onClick={() => handleClick(donation.id)}
-              >
-                Mehr Infos
-              </StyledMoreInfoButton>
-            </StyledCard>
-          ))}
-        </StyledList>
-      )}
-    </StyledDiv>
-  );
 }
 
 const StyledLessInfoButton = styled.button`

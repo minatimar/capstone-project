@@ -10,7 +10,8 @@
     "bio": true,
     "vegetarisch": true,
     "vegan": true,
-    "glutenfrei": true
+    "glutenfrei": true,
+    "isShown": true
   },
 
   {

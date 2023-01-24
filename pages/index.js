@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import MoreInfoButton from "@/components/ToggleButton";
+import InfoButton from "@/components/ToggleButton";
 
 export default function HomePage({ donations }) {
   return (
     <>
       <StyledList>
-        <MoreInfoButton />
+        <InfoButton />
       </StyledList>
     </>
   );
