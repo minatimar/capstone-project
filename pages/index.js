@@ -1,24 +1,19 @@
 import styled from "styled-components";
 import InfoButton from "@/components/ToggleButton";
+import DonationListItem from "@/components/DonationListItem";
+import donations from "../db.json";
 
-export default function HomePage({ donations }) {
+export default function HomePage() {
   return (
     <>
       <StyledList>
-        <InfoButton />
+        {donations.map((donation) => {
+          return <DonationListItem key={donation.id} donation={donation} />;
+        })}
       </StyledList>
     </>
   );
 }
-const StyledCard = styled.li`
-  // z-index: 1;
-  border: 2px solid black;
-
-  text-align: center;
-  width: 100%;
-  padding: 10px;
-  margin: 10px;
-`;
 const StyledList = styled.ul`
   list-style: none;
   margin: 0px;
