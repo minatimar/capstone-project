@@ -18,8 +18,9 @@ const StyledList = styled.ul`
   list-style: none;
   margin: 0px;
   padding: 0px;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: solid black 2px; */
 `;

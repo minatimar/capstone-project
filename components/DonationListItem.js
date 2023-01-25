@@ -8,7 +8,7 @@ export default function DonationListItem({ donation }) {
   }
   if (toggle) {
     return (
-      <li>
+      <StyledCard>
         <p>{donation.image}</p>
         <p>Kategorie: {donation.category}</p>
         <p>Beschreibung: {donation.description}</p>
@@ -18,18 +18,18 @@ export default function DonationListItem({ donation }) {
         <StyledLessInfoButton type="button" onClick={() => handleClick()}>
           Weniger Infos
         </StyledLessInfoButton>
-      </li>
+      </StyledCard>
     );
   } else {
     return (
-      <li>
+      <StyledCard>
         <p>{donation.image}</p>
         <p>Beschreibung: {donation.description}</p>
         <p>Entfernung: {donation.distance}</p>
         <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
           Mehr Infos
         </StyledMoreInfoButton>
-      </li>
+      </StyledCard>
     );
   }
 }
@@ -41,4 +41,15 @@ const StyledLessInfoButton = styled.button`
 const StyledMoreInfoButton = styled.button`
   border: solid green;
   background-color: green;
+`;
+const StyledCard = styled.li`
+  border-radius: 8px;
+  gap: 10px;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid black 2px;
 `;
