@@ -8,28 +8,32 @@ export default function DonationListItem({ donation }) {
   }
   if (toggle) {
     return (
-      <StyledCard>
-        <p>{donation.image}</p>
-        <p>Kategorie: {donation.category}</p>
-        <p>Beschreibung: {donation.description}</p>
-        <p>Entfernung: {donation.distance}</p>
-        <p>Haltbar bis: {donation.good_before}</p>
-        <p>Kontakt: {donation.contact_information}</p>
-        <StyledLessInfoButton type="button" onClick={() => handleClick()}>
-          Weniger Infos
-        </StyledLessInfoButton>
-      </StyledCard>
+      <>
+        <StyledCard>
+          <p>{donation.image}</p>
+          <p>Kategorie: {donation.category}</p>
+          <p>Beschreibung: {donation.description}</p>
+          <p>Entfernung: {donation.distance}</p>
+          <p>Haltbar bis: {donation.good_before}</p>
+          <p>Kontakt: {donation.contact_information}</p>
+          <StyledLessInfoButton type="button" onClick={() => handleClick()}>
+            Weniger Infos
+          </StyledLessInfoButton>
+        </StyledCard>
+      </>
     );
   } else {
     return (
-      <StyledCard>
-        <p>{donation.image}</p>
-        <p>Beschreibung: {donation.description}</p>
-        <p>Entfernung: {donation.distance}</p>
-        <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
-          Mehr Infos
-        </StyledMoreInfoButton>
-      </StyledCard>
+      <>
+        <StyledCard>
+          <p>{donation.image}</p>
+          <p>Beschreibung: {donation.description}</p>
+          <p>Entfernung: {donation.distance}</p>
+          <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
+            Mehr Infos
+          </StyledMoreInfoButton>
+        </StyledCard>
+      </>
     );
   }
 }
