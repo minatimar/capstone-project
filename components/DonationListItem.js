@@ -6,7 +6,6 @@ export default function DonationListItem({ donation }) {
   function handleClick() {
     setToggle(!toggle);
   }
-  <h2> Spenden in deiner Nähe: </h2>;
   if (toggle) {
     return (
       <StyledCard>
