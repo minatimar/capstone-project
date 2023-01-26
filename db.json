@@ -3,14 +3,15 @@
     "id": 0,
     "image": "imageUpload",
     "category": "Selbstgemacht",
-    "description": "Selbstgekochte Tomatensuppe mit Basilikum",
+    "description": "Selbstgekochte Tomatensuppe",
     "distance": "500 Meter",
     "good_before": "4 Tage",
     "contact_information": "hello@gmail.com",
-    "bio": true,
-    "vegetarisch": true,
-    "vegan": true,
-    "glutenfrei": true
+    "isBio": false,
+    "isVegetarian": true,
+    "isVegan": true,
+    "isGlutenfree": true,
+    "isShown": true
   },
 
   {
@@ -21,10 +22,10 @@
     "distance": "1,7 km",
     "good_before": "3 Tage",
     "contact_information": "helloagain@gmail.com",
-    "bio": true,
-    "vegetarisch": true,
-    "vegan": true,
-    "glutenfrei": true
+    "isBio": true,
+    "isVegetarian": true,
+    "isVegan": true,
+    "isGlutenfree": true
   },
   {
     "id": 2,
@@ -34,9 +35,9 @@
     "distance": "2,2 km",
     "good_before": "2 Tage",
     "contact_information": "hallöchen@gmail.com",
-    "bio": true,
-    "vegetarisch": true,
-    "vegan": true,
-    "glutenfrei": true
+    "isBio": false,
+    "isVegetarian": true,
+    "isVegan": true,
+    "isGlutenfree": false
   }
 ]
