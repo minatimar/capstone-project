@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-export default function DonationListItem({ donation }) {
-  const [toggleDonationDetails, setToggleDonationDetails] = useState(false);
-  function handleClick() {
-    setToggleDonationDetails(!toggleDonationDetails);
-  }
-  if (toggleDonationDetails) {
-    return (
+export default function MyDonations({ donation }) {
+  // const [toggleDonationDetails, setToggleDonationDetails] = useState(false);
+  // function handleClick() {
+  //   setToggleDonationDetails(!toggleDonationDetails);
+  // }
+  return (
+    <>
       <StyledCard>
         <p>{donation.image}</p>
         <p>Kategorie: {donation.category}</p>
@@ -47,23 +47,10 @@ export default function DonationListItem({ donation }) {
           value="value4"
           checked={donation.isGlutenfree}
         />
-        <StyledLessInfoButton type="button" onClick={() => handleClick()}>
-          Weniger Infos
-        </StyledLessInfoButton>
+        <StyledLessInfoButton type="button">Löschen</StyledLessInfoButton>
       </StyledCard>
-    );
-  } else {
-    return (
-      <StyledCard>
-        <p>{donation.image}</p>
-        <p>Beschreibung: {donation.description}</p>
-        <p>Entfernung: {donation.distance}</p>
-        <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
-          Mehr Infos
-        </StyledMoreInfoButton>
-      </StyledCard>
-    );
-  }
+    </>
+  );
 }
 
 const StyledLessInfoButton = styled.button`
