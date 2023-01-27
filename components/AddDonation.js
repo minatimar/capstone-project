@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 
 export default function AddDonation({ createDonation }) {
-  const [toggleAddButton, setToggleAddButton] = useState(false);
+  const [toggleAddButton, setToggleAddButton] = useState(true);
   function handleClick() {
     setToggleAddButton(!toggleAddButton);
   }
@@ -12,7 +12,7 @@ export default function AddDonation({ createDonation }) {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
-    createTask(data);
+    createDonation(data);
 
     event.target.reset();
     setToggleAddButton(!toggleAddButton);
@@ -20,15 +20,18 @@ export default function AddDonation({ createDonation }) {
 
   return (
     <StyledDiv>
-      <StyledButton onClick={handleClick}>Neue Spende hinzufügen</StyledButton>
       {toggleAddButton ? (
+        <StyledButton onClick={handleClick}>
+          Neue Spende hinzufügen
+        </StyledButton>
+      ) : (
         <StyledForm onSubmit={handleSubmit}>
           <form>
             <label for="category">Kategorie:</label>
             <select name="category" id="category">
               <option value="fruits&vegetables">Obst&Gemüse</option>
-              <option value="fruits&vegetablec">Obst&Gemüse</option>
-              <option value="fruits&vegetables">Obst&Gemüse</option>
+              <option value="selfmade">Selbstgemacht</option>
+              <option value="Bread">Backwaren</option>
             </select>
             <label for="description">Beschreibung:</label>
             <textarea
@@ -40,7 +43,7 @@ export default function AddDonation({ createDonation }) {
             />
 
             <label for="bestBefore">Haltbar bis:</label>
-            <input type="date" id="bestBefore" name="bestBefore" />
+            <input type="date" id="good_before" name="good_before" />
 
             <label for="zipcode">Postleitzahl:</label>
             <input type="input" id="zipcode" name="zipcode" />
@@ -49,42 +52,34 @@ export default function AddDonation({ createDonation }) {
             <input type="input" id="district" name="district" />
 
             <label for="contact">Kontaktinformation:</label>
-            <input type="input" id="contact" name="contact" />
+            <input
+              type="input"
+              id="contact_information"
+              name="contact_information"
+            />
 
             <label for="checkbox1">Bio</label>
-            <input
-              type="checkbox"
-              id="checkbox1"
-              name="checkbox1"
-              value="value1"
-            />
+            <input type="checkbox" id="isBio" name="isBio" value="value1" />
             <label for="checkbox2">Vegetarisch</label>
             <input
               type="checkbox"
-              id="checkbox2"
-              name="checkbox2"
+              id="isVegetarian"
+              name="isVegetarian"
               value="value2"
             />
             <label for="checkbox3">Vegan</label>
-            <input
-              type="checkbox"
-              id="checkbox3"
-              name="checkbox3"
-              value="value3"
-            />
+            <input type="checkbox" id="isVegan" name="isVegan" value="value3" />
             <label for="checkbox4">Glutenfrei</label>
             <input
               type="checkbox"
-              id="checkbox4"
-              name="checkbox4"
+              id="isGlutenfree"
+              name="isGlutenfree"
               value="value4"
             />
           </form>
-          <button type="submit">zurück</button>
+          <button onClick={handleClick}>zurück</button>
           <button type="submit">hinzufügen</button>
         </StyledForm>
-      ) : (
-        ""
       )}
     </StyledDiv>
   );

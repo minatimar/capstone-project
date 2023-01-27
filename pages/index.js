@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import DonationListItem from "@/components/DonationListItem";
-import donations from "../db.json";
-import MyDonations from "../components/MyDonationList";
+import donations from "@/db.json";
+import AddDonation from "@/components/AddDonation";
 
 export default function HomePage() {
   return (
@@ -15,7 +15,7 @@ export default function HomePage() {
     </>
   );
 }
-const StyledList = styled.ul`
+const StyledCard = styled.ul`
   list-style: none;
   margin: 0px;
   padding: 0px;

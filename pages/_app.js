@@ -8,8 +8,14 @@ export default function App({ Component, pageProps }) {
   const [donations, setDonations] = useLocalStorageState("donations", {
     defaultValue: [...userDonations],
   });
-  function createDonation(donation) {
-    setDonations([...donations, donation]);
+  function createDonation(newDonation) {
+    setDonations((oldDonations) => [
+      {
+        ...newDonation,
+        id: crypto.randomUUID(),
+      },
+      ...oldDonations,
+    ]);
   }
   return (
     <>

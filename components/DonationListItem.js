@@ -12,9 +12,10 @@ export default function DonationListItem({ donation }) {
         <p>{donation.image}</p>
         <p>Kategorie: {donation.category}</p>
         <p>Beschreibung: {donation.description}</p>
-        <p>Entfernung: {donation.distance}</p>
-        <p>Haltbar bis: {donation.good_before}</p>
-        <p>Kontakt: {donation.contact_information}</p>
+        <p>Haltbar bis: {donation.bestBefore}</p>
+        <p>PLZ: {donation.zipCode}</p>
+        <p>Stadtteil: {donation.district}</p>
+        <p>Kontakt: {donation.contactInformation}</p>
         <label for="checkbox1">Bio</label>
         <input
           type="checkbox"
@@ -57,7 +58,8 @@ export default function DonationListItem({ donation }) {
       <StyledCard>
         <p>{donation.image}</p>
         <p>Beschreibung: {donation.description}</p>
-        <p>Entfernung: {donation.distance}</p>
+        <p>PLZ: {donation.zipCode}</p>
+        <p>Stadtteil: {donation.district}</p>
         <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
           Mehr Infos
         </StyledMoreInfoButton>
