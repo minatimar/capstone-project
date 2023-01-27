@@ -3,7 +3,11 @@ import donations from "../db.json";
 import MyDonations from "../components/MyDonationList";
 import AddDonation from "@/components/AddDonation";
 
-export default function MyDonationList({ donations, createDonation }) {
+export default function MyDonationList({
+  donations,
+  createDonation,
+  handleDelete,
+}) {
   return (
     <>
       <h3> Meine Spenden:</h3>
@@ -11,7 +15,13 @@ export default function MyDonationList({ donations, createDonation }) {
 
       <StyledCard>
         {donations.map((donation) => {
-          return <MyDonations key={donation.id} donation={donation} />;
+          return (
+            <MyDonations
+              key={donation.id}
+              donation={donation}
+              handleDelete={handleDelete}
+            />
+          );
         })}
       </StyledCard>
     </>

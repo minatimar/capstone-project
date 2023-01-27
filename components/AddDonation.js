@@ -11,7 +11,7 @@ export default function AddDonation({ createDonation }) {
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
+
     createDonation(data);
 
     event.target.reset();

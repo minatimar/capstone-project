@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { useState } from "react";
 
-export default function MyDonations({ donation }) {
+export default function MyDonations({ donation, handleDelete }) {
   return (
     <>
       <StyledCard>
@@ -12,7 +11,7 @@ export default function MyDonations({ donation }) {
         <p>PLZ: {donation.zipCode}</p>
         <p>Stadtteil: {donation.district}</p>
         <p>Kontakt: {donation.contactInformation}</p>
-        <label for="checkbox1">Bio</label>
+        <label htmlFor="checkbox1">Bio</label>
         <input
           type="checkbox"
           id="checkbox1"
@@ -20,7 +19,7 @@ export default function MyDonations({ donation }) {
           value="value1"
           checked={donation.isBio}
         />
-        <label for="checkbox2">Vegetarisch</label>
+        <label htmlFor="checkbox2">Vegetarisch</label>
         <input
           type="checkbox"
           id="checkbox2"
@@ -28,7 +27,7 @@ export default function MyDonations({ donation }) {
           value="value2"
           checked={donation.isVegetarian}
         />
-        <label for="checkbox3">Vegan</label>
+        <label htmlFor="checkbox3">Vegan</label>
         <input
           type="checkbox"
           id="checkbox3"
@@ -36,7 +35,7 @@ export default function MyDonations({ donation }) {
           value="value3"
           checked={donation.isVegan}
         />
-        <label for="checkbox4">Glutenfrei</label>
+        <label htmlFor="checkbox4">Glutenfrei</label>
         <input
           type="checkbox"
           id="checkbox4"
@@ -44,7 +43,12 @@ export default function MyDonations({ donation }) {
           value="value4"
           checked={donation.isGlutenfree}
         />
-        <StyledDeleteButton type="button">Löschen</StyledDeleteButton>
+        <StyledDeleteButton
+          type="button"
+          onClick={() => handleDelete(donation.id)}
+        >
+          Löschen
+        </StyledDeleteButton>
       </StyledCard>
     </>
   );

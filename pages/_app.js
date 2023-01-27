@@ -8,8 +8,14 @@ export default function App({ Component, pageProps }) {
   const [donations, setDonations] = useLocalStorageState("donations", {
     defaultValue: [...userDonations],
   });
+
+  function handleDelete(donationID) {
+    const deletedList = donations.filter(
+      (donations) => donationID !== donations.id
+    );
+  }
+
   function createDonation(newDonation) {
-    console.log(newDonation);
     setDonations((oldDonations) => [
       {
         ...newDonation,
@@ -29,6 +35,7 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <StyledHeadline>Die Essensretter</StyledHeadline>
       <Component
+        handleDelete={handleDelete}
         {...pageProps}
         donations={donations}
         createDonation={createDonation}
