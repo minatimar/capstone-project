@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }) {
     defaultValue: [...userDonations],
   });
   function createDonation(newDonation) {
+    console.log(newDonation);
     setDonations((oldDonations) => [
       {
         ...newDonation,
