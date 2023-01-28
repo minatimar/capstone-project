@@ -23,6 +23,7 @@ export default function DonationListItem({ donation }) {
           name="checkbox1"
           value="value1"
           checked={donation.isBio}
+          readOnly
         />
         <label for="checkbox2">Vegetarisch</label>
         <input
@@ -31,6 +32,7 @@ export default function DonationListItem({ donation }) {
           name="checkbox2"
           value="value2"
           checked={donation.isVegetarian}
+          readOnly
         />
         <label for="checkbox3">Vegan</label>
         <input
@@ -39,6 +41,7 @@ export default function DonationListItem({ donation }) {
           name="checkbox3"
           value="value3"
           checked={donation.isVegan}
+          readOnly
         />
         <label for="checkbox4">Glutenfrei</label>
         <input
@@ -47,6 +50,7 @@ export default function DonationListItem({ donation }) {
           name="checkbox4"
           value="value4"
           checked={donation.isGlutenfree}
+          readOnly
         />
         <StyledLessInfoButton type="button" onClick={() => handleClick()}>
           Weniger Infos
