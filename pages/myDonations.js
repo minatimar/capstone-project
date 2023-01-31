@@ -1,16 +1,21 @@
 import styled from "styled-components";
-import donations from "../db.json";
 import MyDonationList from "../components/MyDonationList";
 import AddDonation from "@/components/AddDonation";
+import Link from "next/link";
 
 export default function MyDonations({
   donations,
   createDonation,
   handleDelete,
+  handleDummyDonations,
 }) {
   return (
     <>
-      <h3> Meine Spenden:</h3>
+      <h2> Meine Spenden:</h2>
+      <Link href={"/"}>back</Link>
+      <button type="button" onClick={handleDummyDonations}>
+        Reset to default
+      </button>
       <AddDonation createDonation={createDonation} />
 
       <StyledCard>

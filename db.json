@@ -27,7 +27,8 @@
     "isBio": true,
     "isVegetarian": true,
     "isVegan": true,
-    "isGlutenfree": true
+    "isGlutenfree": true,
+    "isShown": true
   },
   {
     "id": 2,
@@ -41,6 +42,7 @@
     "isBio": false,
     "isVegetarian": true,
     "isVegan": true,
-    "isGlutenfree": false
+    "isGlutenfree": false,
+    "isShown": true
   }
 ]

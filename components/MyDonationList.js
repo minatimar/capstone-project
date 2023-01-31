@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import donations from "@/db.json";
+import { StyledCard } from "./StyledCard";
 
 export default function MyDonationList({ donation, handleDelete }) {
   return (
@@ -17,7 +17,6 @@ export default function MyDonationList({ donation, handleDelete }) {
           type="checkbox"
           id="checkbox1"
           name="checkbox1"
-          value="value1"
           checked={donation.isBio}
           readOnly
         />
@@ -26,7 +25,6 @@ export default function MyDonationList({ donation, handleDelete }) {
           type="checkbox"
           id="checkbox2"
           name="checkbox2"
-          value="value2"
           checked={donation.isVegetarian}
           readOnly
         />
@@ -35,7 +33,6 @@ export default function MyDonationList({ donation, handleDelete }) {
           type="checkbox"
           id="checkbox3"
           name="checkbox3"
-          value="value3"
           checked={donation.isVegan}
           readOnly
         />
@@ -44,7 +41,6 @@ export default function MyDonationList({ donation, handleDelete }) {
           type="checkbox"
           id="checkbox4"
           name="checkbox4"
-          value="value4"
           checked={donation.isGlutenfree}
           readOnly
         />
@@ -62,19 +58,4 @@ export default function MyDonationList({ donation, handleDelete }) {
 const StyledDeleteButton = styled.button`
   border: solid red;
   background-color: red;
-`;
-const StyledMoreInfoButton = styled.button`
-  border: solid green;
-  background-color: green;
-`;
-const StyledCard = styled.li`
-  border-radius: 8px;
-  gap: 10px;
-  margin: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: solid black 2px;
 `;

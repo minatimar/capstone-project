@@ -13,6 +13,7 @@ export default function AddDonation({ createDonation }) {
     const data = Object.fromEntries(formData);
 
     createDonation(data);
+    console.log(data);
 
     event.target.reset();
     setToggleAddButton(!toggleAddButton);
@@ -39,44 +40,49 @@ export default function AddDonation({ createDonation }) {
             name="description"
             cols="30"
             rows="3"
+            max="250"
+            // pattern="[a-zA-ZäüöÄÜÖß -+&*.,:;!?()%€]"
           />
 
           <label htmlFor="bestBefore">Haltbar bis:</label>
           <input type="date" id="bestBefore" name="bestBefore" />
 
           <label htmlFor="zipcode">Postleitzahl:</label>
-          <input type="input" id="zipcode" name="zipcode" />
+          <input
+            type="text"
+            id="zipcode"
+            name="zipcode"
+            pattern="^[0-9][0-9][0-9][0-9][0-9]$"
+            title="Bitte 5-stellige PLZ eingeben"
+            required
+          />
 
-          <label htmlFor="district">Stadtteil:</label>
-          <input type="input" id="district" name="district" />
+          <label htmlFor="district"> Hamburger-Stadtteil:</label>
+          <input
+            type="input"
+            id="district"
+            name="district"
+            title="Bitte Stadtteil angeben"
+          />
 
           <label htmlFor="contactInformation">Kontaktinformation:</label>
           <input
             type="input"
             id="contactInformation"
             name="contactInformation"
+            required
           />
 
           <label htmlFor="checkbox1">Bio</label>
-          <input type="checkbox" id="isBio" name="isBio" value="value1" />
+          <input type="checkbox" id="isBio" name="isBio" />
 
           <label htmlFor="checkbox2">Vegetarisch</label>
-          <input
-            type="checkbox"
-            id="isVegetarian"
-            name="isVegetarian"
-            value="value2"
-          />
+          <input type="checkbox" id="isVegetarian" name="isVegetarian" />
           <label htmlFor="checkbox3">Vegan</label>
-          <input type="checkbox" id="isVegan" name="isVegan" value="value3" />
+          <input type="checkbox" id="isVegan" name="isVegan" />
 
           <label htmlFor="checkbox4">Glutenfrei</label>
-          <input
-            type="checkbox"
-            id="isGlutenfree"
-            name="isGlutenfree"
-            value="value4"
-          />
+          <input type="checkbox" id="isGlutenfree" name="isGlutenfree" />
 
           <button onClick={handleClick}>zurück</button>
           <button type="submit">hinzufügen</button>

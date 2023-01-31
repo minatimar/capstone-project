@@ -10,9 +10,10 @@ export default function App({ Component, pageProps }) {
   });
 
   function handleDelete(donationID) {
-    const deletedList = donations.filter(
+    const updatedList = donations.filter(
       (donations) => donationID !== donations.id
     );
+    setDonations(updatedList);
   }
 
   function createDonation(newDonation) {
@@ -23,6 +24,10 @@ export default function App({ Component, pageProps }) {
       },
       ...oldDonations,
     ]);
+  }
+
+  function handleDummyDonations() {
+    setDonations(userDonations);
   }
   return (
     <>
@@ -39,6 +44,7 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         donations={donations}
         createDonation={createDonation}
+        handleDummyDonations={handleDummyDonations}
       />
     </>
   );
