@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import donations from "@/db.json";
 
 export default function MyDonationList({ donation, handleDelete }) {
   return (
