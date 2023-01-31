@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import donations from "../db.json";
-import MyDonations from "../components/MyDonationList";
+import MyDonationList from "../components/MyDonationList";
 import AddDonation from "@/components/AddDonation";
 
-export default function MyDonationList({
+export default function MyDonations({
   donations,
   createDonation,
   handleDelete,
@@ -16,7 +16,7 @@ export default function MyDonationList({
       <StyledCard>
         {donations.map((donation) => {
           return (
-            <MyDonations
+            <MyDonationList
               key={donation.id}
               donation={donation}
               handleDelete={handleDelete}

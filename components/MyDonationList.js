@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function MyDonations({ donation, handleDelete }) {
+export default function MyDonationList({ donation, handleDelete }) {
   return (
     <>
       <StyledCard>
@@ -18,6 +18,7 @@ export default function MyDonations({ donation, handleDelete }) {
           name="checkbox1"
           value="value1"
           checked={donation.isBio}
+          readOnly
         />
         <label htmlFor="checkbox2">Vegetarisch</label>
         <input
@@ -26,6 +27,7 @@ export default function MyDonations({ donation, handleDelete }) {
           name="checkbox2"
           value="value2"
           checked={donation.isVegetarian}
+          readOnly
         />
         <label htmlFor="checkbox3">Vegan</label>
         <input
@@ -34,6 +36,7 @@ export default function MyDonations({ donation, handleDelete }) {
           name="checkbox3"
           value="value3"
           checked={donation.isVegan}
+          readOnly
         />
         <label htmlFor="checkbox4">Glutenfrei</label>
         <input
@@ -42,6 +45,7 @@ export default function MyDonations({ donation, handleDelete }) {
           name="checkbox4"
           value="value4"
           checked={donation.isGlutenfree}
+          readOnly
         />
         <StyledDeleteButton
           type="button"

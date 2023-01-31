@@ -49,7 +49,7 @@ const StyledHeadline = styled.h1`
   top: 0;
   text-align: center;
   width: 100%;
-  background-color: pink;
+  background-color: green;
   padding: 0;
   margin: 0;
 `;

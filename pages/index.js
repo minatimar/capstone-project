@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import DonationListItem from "@/components/DonationListItem";
 import donations from "@/db.json";
-import AddDonation from "@/components/AddDonation";
 
 export default function HomePage() {
   return (

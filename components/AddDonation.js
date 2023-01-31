@@ -88,14 +88,6 @@ export default function AddDonation({ createDonation }) {
 
 const StyledDiv = styled.div`
   align-items: center;
-  /* gap: 10px;
-  margin: 10px;
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border: solid red 2px; */
 `;
 
 const StyledForm = styled.form`
