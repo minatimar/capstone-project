@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import { useState } from "react";
+import Counter from "./Counter";
 
 export default function AddDonation({ createDonation }) {
   const [toggleAddButton, setToggleAddButton] = useState(true);
+  const [count, setCount] = useState(0);
   function handleClick() {
     setToggleAddButton(!toggleAddButton);
   }
@@ -29,9 +31,14 @@ export default function AddDonation({ createDonation }) {
         <StyledForm onSubmit={handleSubmit}>
           <label htmlFor="category">Kategorie:</label>
           <select name="category" id="category">
-            <option value="fruits&vegetables">Obst&Gemüse</option>
+            <option value="fruits&vegetables">Obst & Gemüse</option>
             <option value="selfmade">Selbstgemacht</option>
             <option value="Bread">Backwaren</option>
+            <option value="Bread">Käse, Eier & Molkerei</option>
+            <option value="Bread">Tiefkühlkost</option>
+            <option value="Bread">Süßes & Salziges</option>
+            <option value="Bread">Getränke</option>
+            <option value="Bread">Fleisch & Fisch</option>
           </select>
           <label htmlFor="description">Beschreibung:</label>
           <textarea
@@ -40,9 +47,11 @@ export default function AddDonation({ createDonation }) {
             name="description"
             cols="30"
             rows="3"
-            max="250"
-            // pattern="[a-zA-ZäüöÄÜÖß -+&*.,:;!?()%€]"
+            maxLength="750"
+            pattern="[a-zA-ZäüöÄÜÖß0-9 -+&*.,:;!?()%€]"
+            onChange={(event) => setCount(event.target.value.length)}
           />
+          <Counter maxLength={750} counter={count} />
 
           <label htmlFor="bestBefore">Haltbar bis:</label>
           <input type="date" id="bestBefore" name="bestBefore" />
