@@ -1,25 +1,19 @@
 import styled from "styled-components";
 
-export default function Counter({ maxLength, counter }) {
+export default function Counter({ max, counter }) {
   return (
-    <Wrapper>
-      {counter < maxLength && counter >= 0 ? (
-        <CounterLetters> {maxLength - counter} Zeichen</CounterLetters>
+    <>
+      {counter < max && counter >= 0 ? (
+        <CharacterCounter> {max - counter} Zeichen</CharacterCounter>
       ) : (
-        <CounterLetters>
-          keine Zeichen mehr übrig - bitte kürzen{" "}
-        </CounterLetters>
+        <CharacterCounter>
+          Es sind keine Zeichen mehr übrig - bitte kürze die Beschreibung{" "}
+        </CharacterCounter>
       )}
-    </Wrapper>
+    </>
   );
 }
 
-const CounterLetters = styled.p`
-  font-size: 0.8em;
-  margin: 0;
-`;
-
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
+const CharacterCounter = styled.p`
+  font-size: 7px;
 `;

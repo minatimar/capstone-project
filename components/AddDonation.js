@@ -32,13 +32,13 @@ export default function AddDonation({ createDonation }) {
           <label htmlFor="category">Kategorie:</label>
           <select name="category" id="category">
             <option value="fruits&vegetables">Obst & Gemüse</option>
-            <option value="selfmade">Selbstgemacht</option>
-            <option value="Bread">Backwaren</option>
-            <option value="Bread">Käse, Eier & Molkerei</option>
-            <option value="Bread">Tiefkühlkost</option>
-            <option value="Bread">Süßes & Salziges</option>
-            <option value="Bread">Getränke</option>
-            <option value="Bread">Fleisch & Fisch</option>
+            <option value="homemade">Selbstgemacht</option>
+            <option value="bread">Backwaren</option>
+            <option value="dairy">Käse, Eier & Molkerei</option>
+            <option value="frozen">Tiefkühlkost</option>
+            <option value="sweet&salty">Süßes & Salziges</option>
+            <option value="beverage">Getränke</option>
+            <option value="meat&fish">Fleisch & Fisch</option>
           </select>
           <label htmlFor="description">Beschreibung:</label>
           <textarea
@@ -47,11 +47,11 @@ export default function AddDonation({ createDonation }) {
             name="description"
             cols="30"
             rows="3"
-            maxLength="750"
+            maxL="250"
             pattern="[a-zA-ZäüöÄÜÖß0-9 -+&*.,:;!?()%€]"
             onChange={(event) => setCount(event.target.value.length)}
           />
-          <Counter maxLength={750} counter={count} />
+          <Counter max={250} counter={count} />
 
           <label htmlFor="bestBefore">Haltbar bis:</label>
           <input type="date" id="bestBefore" name="bestBefore" />
@@ -66,7 +66,7 @@ export default function AddDonation({ createDonation }) {
             required
           />
 
-          <label htmlFor="district"> Hamburger-Stadtteil:</label>
+          <label htmlFor="district"> Stadtteil: Hamburg-</label>
           <input
             type="input"
             id="district"

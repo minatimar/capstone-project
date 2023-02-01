@@ -1,12 +1,12 @@
 [
   {
-    "id": 0,
+    "id": "0",
     "image": "Image Upload",
     "category": "Selbstgemacht",
     "description": "Selbstgekochte Tomatensuppe",
     "bestBefore": "22.02.2023",
     "zipCode": "22149",
-    "district": "Hamburg-Rahlstedt",
+    "district": "Rahlstedt",
     "contactInformation": "hello@gmail.com",
     "isBio": false,
     "isVegetarian": true,
@@ -16,13 +16,13 @@
   },
 
   {
-    "id": 1,
+    "id": "1",
     "image": "Image Upload",
     "category": "Obst&Gemüse",
     "description": "2 Mangos",
     "bestBefore": "27.02.2023",
     "zipCode": "20095",
-    "district": "Hamburg-St.Georg",
+    "district": "St.Georg",
     "contactInformation": "helloagain@gmail.com",
     "isBio": true,
     "isVegetarian": true,
@@ -31,13 +31,13 @@
     "isShown": true
   },
   {
-    "id": 2,
+    "id": "2",
     "image": "Image Upload",
     "category": "Backwaren",
     "description": "Vollkornbrot",
     "bestBefore": "27.02.2023",
     "zipCode": "20144",
-    "district": "Hamburg-Eimsbüttel",
+    "district": "Eimsbüttel",
     "contactInformation": "hallöchen@gmail.com",
     "isBio": false,
     "isVegetarian": true,

@@ -10,7 +10,7 @@ export default function MyDonationList({ donation, handleDelete }) {
         <p>Beschreibung: {donation.description}</p>
         <p>Haltbar bis: {donation.bestBefore}</p>
         <p>PLZ: {donation.zipCode}</p>
-        <p>Stadtteil: {donation.district}</p>
+        <p>Stadtteil: Hamburg- {donation.district}</p>
         <p>Kontakt: {donation.contactInformation}</p>
         <label htmlFor="checkbox1">Bio</label>
         <input

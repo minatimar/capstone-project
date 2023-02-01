@@ -15,7 +15,7 @@ export default function DonationListItem({ donation }) {
         <p>Beschreibung: {donation.description}</p>
         <p>Haltbar bis: {donation.bestBefore}</p>
         <p>PLZ: {donation.zipCode}</p>
-        <p>Stadtteil: {donation.district}</p>
+        <p>Stadtteil: Hamburg- {donation.district}</p>
         <p>Kontakt: {donation.contactInformation}</p>
         <label for="checkbox1">Bio</label>
         <input
@@ -60,7 +60,7 @@ export default function DonationListItem({ donation }) {
         <p>{donation.image}</p>
         <p>Beschreibung: {donation.description}</p>
         <p>PLZ: {donation.zipCode}</p>
-        <p>Stadtteil: {donation.district}</p>
+        <p>Stadtteil: Hamburg- {donation.district}</p>
         <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
           Mehr Infos
         </StyledMoreInfoButton>
