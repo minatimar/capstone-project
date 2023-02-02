@@ -47,7 +47,7 @@ export default function AddDonation({ createDonation }) {
             name="description"
             cols="30"
             rows="5"
-            max="250"
+            maxLength="250"
             pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
             onChange={(event) => setCount(event.target.value.length)}
             required
@@ -73,8 +73,8 @@ export default function AddDonation({ createDonation }) {
             id="district"
             name="district"
             title="Bitte Stadtteil angeben"
-            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
-            max="15"
+            pattern="^[a-zA-ZäüöÄÜÖß _-+&.,:()]$"
+            maxLength="15"
           />
 
           <label htmlFor="contactInformation">Kontaktinformation:</label>
@@ -82,8 +82,8 @@ export default function AddDonation({ createDonation }) {
             type="input"
             id="contactInformation"
             name="contactInformation"
-            max="25"
-            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
+            maxLength="25"
+            pattern="^[a-zA-ZäüöÄÜÖß0-9 @_-+&*.,:;!?()%€]$"
             required
           />
 
