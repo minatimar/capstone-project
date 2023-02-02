@@ -57,11 +57,11 @@ export default function AddDonation({ createDonation }) {
           <label htmlFor="bestBefore">Haltbar bis:</label>
           <input type="date" id="bestBefore" name="bestBefore" />
 
-          <label htmlFor="zipcode">Postleitzahl:</label>
+          <label htmlFor="zipCode">Postleitzahl:</label>
           <input
             type="text"
-            id="zipcode"
-            name="zipcode"
+            id="zipCode"
+            name="zipCode"
             pattern="^[0-9][0-9][0-9][0-9][0-9]$"
             title="Bitte 5-stellige PLZ eingeben"
             required
