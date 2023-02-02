@@ -1,14 +1,13 @@
 import styled from "styled-components";
 import DonationListItem from "@/components/DonationListItem";
-import donations from "@/db.json";
 import Link from "next/link";
 
-export default function HomePage() {
+export default function HomePage({ donations }) {
   return (
     <>
       <Link href={"/myDonations"}>MyDonations</Link>
+      <h2> Spenden in deiner Nähe: </h2>
       <StyledCard>
-        <h2> Spenden in deiner Nähe: </h2>
         {donations.map((donation) => {
           return <DonationListItem key={donation.id} donation={donation} />;
         })}

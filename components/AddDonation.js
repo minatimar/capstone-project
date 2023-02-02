@@ -15,8 +15,7 @@ export default function AddDonation({ createDonation }) {
     const data = Object.fromEntries(formData);
 
     createDonation(data);
-    console.log(data);
-
+    setCount(0);
     event.target.reset();
     setToggleAddButton(!toggleAddButton);
   }
@@ -30,10 +29,11 @@ export default function AddDonation({ createDonation }) {
       ) : (
         <StyledForm onSubmit={handleSubmit}>
           <label htmlFor="category">Kategorie:</label>
-          <select name="category" id="category">
+          <select name="category" id="category" required>
+            <option value="">-Wähle bitte eine Kategorie-</option>
             <option value="fruits&vegetables">Obst & Gemüse</option>
             <option value="homemade">Selbstgemacht</option>
-            <option value="bread">Backwaren</option>
+            <option value="pastry">Backwaren</option>
             <option value="dairy">Käse, Eier & Molkerei</option>
             <option value="frozen">Tiefkühlkost</option>
             <option value="sweet&salty">Süßes & Salziges</option>
@@ -46,10 +46,11 @@ export default function AddDonation({ createDonation }) {
             id="description"
             name="description"
             cols="30"
-            rows="3"
-            maxL="250"
-            pattern="[a-zA-ZäüöÄÜÖß0-9 -+&*.,:;!?()%€]"
+            rows="5"
+            max="250"
+            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
             onChange={(event) => setCount(event.target.value.length)}
+            required
           />
           <Counter max={250} counter={count} />
 
@@ -72,6 +73,8 @@ export default function AddDonation({ createDonation }) {
             id="district"
             name="district"
             title="Bitte Stadtteil angeben"
+            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
+            max="15"
           />
 
           <label htmlFor="contactInformation">Kontaktinformation:</label>
@@ -79,6 +82,8 @@ export default function AddDonation({ createDonation }) {
             type="input"
             id="contactInformation"
             name="contactInformation"
+            max="25"
+            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
             required
           />
 

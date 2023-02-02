@@ -1,9 +1,9 @@
 [
   {
     "id": "0",
-    "image": "Image Upload",
-    "category": "Selbstgemacht",
-    "description": "Selbstgekochte Tomatensuppe",
+    "image": "[Image Upload]",
+    "category": "homemade",
+    "description": "Tomatensuppe",
     "bestBefore": "22.02.2023",
     "zipCode": "22149",
     "district": "Rahlstedt",
@@ -17,8 +17,8 @@
 
   {
     "id": "1",
-    "image": "Image Upload",
-    "category": "Obst&Gemüse",
+    "image": "[Image Upload]",
+    "category": "fruits&vegetables",
     "description": "2 Mangos",
     "bestBefore": "27.02.2023",
     "zipCode": "20095",
@@ -32,8 +32,8 @@
   },
   {
     "id": "2",
-    "image": "Image Upload",
-    "category": "Backwaren",
+    "image": "[Image Upload]",
+    "category": "pastry",
     "description": "Vollkornbrot",
     "bestBefore": "27.02.2023",
     "zipCode": "20144",

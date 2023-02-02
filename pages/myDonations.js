@@ -13,6 +13,7 @@ export default function MyDonations({
     <>
       <h2> Meine Spenden:</h2>
       <Link href={"/"}>back</Link>
+      <br />
       <button type="button" onClick={handleDummyDonations}>
         Reset to default
       </button>

@@ -7,7 +7,7 @@ export default function Counter({ max, counter }) {
         <CharacterCounter> {max - counter} Zeichen</CharacterCounter>
       ) : (
         <CharacterCounter>
-          Es sind keine Zeichen mehr übrig - bitte kürze die Beschreibung{" "}
+          Es sind keine Zeichen mehr übrig - bitte kürze die Beschreibung
         </CharacterCounter>
       )}
     </>
@@ -15,5 +15,5 @@ export default function Counter({ max, counter }) {
 }
 
 const CharacterCounter = styled.p`
-  font-size: 7px;
+  font-size: 10px;
 `;

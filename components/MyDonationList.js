@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import { StyledCard } from "./StyledCard";
+import { translateCategory } from "@/helpers/translateCategory";
 
 export default function MyDonationList({ donation, handleDelete }) {
+  let germanCategory = translateCategory(donation.category);
+
   return (
     <>
       <StyledCard>
         <p>{donation.image}</p>
-        <p>Kategorie: {donation.category}</p>
+        <p>Kategorie: {germanCategory}</p>
         <p>Beschreibung: {donation.description}</p>
         <p>Haltbar bis: {donation.bestBefore}</p>
         <p>PLZ: {donation.zipCode}</p>

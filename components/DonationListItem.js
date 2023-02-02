@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { StyledCard } from "./StyledCard";
+import { translateCategory } from "@/helpers/translateCategory";
 
 export default function DonationListItem({ donation }) {
   const [toggleDonationDetails, setToggleDonationDetails] = useState(false);
@@ -11,7 +12,7 @@ export default function DonationListItem({ donation }) {
     return (
       <StyledCard>
         <p>{donation.image}</p>
-        <p>Kategorie: {donation.category}</p>
+        <p>Kategorie: {translateCategory(donation.category)}</p>
         <p>Beschreibung: {donation.description}</p>
         <p>Haltbar bis: {donation.bestBefore}</p>
         <p>PLZ: {donation.zipCode}</p>
