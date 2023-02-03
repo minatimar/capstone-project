@@ -3,10 +3,10 @@ import { useState } from "react";
 import Counter from "./Counter";
 
 export default function AddDonation({ createDonation }) {
-  const [toggleAddButton, setToggleAddButton] = useState(true);
+  const [isFormVisible, setIsFormVisible] = useState(true);
   const [count, setCount] = useState(0);
-  function handleClick() {
-    setToggleAddButton(!toggleAddButton);
+  function handleToggleForm() {
+    setIsFormVisible(!isFormVisible);
   }
   function handleSubmit(event) {
     event.preventDefault();
@@ -17,13 +17,13 @@ export default function AddDonation({ createDonation }) {
     createDonation(data);
     setCount(0);
     event.target.reset();
-    setToggleAddButton(!toggleAddButton);
+    setIsFormVisible(!isFormVisible);
   }
 
   return (
     <StyledDiv>
-      {toggleAddButton ? (
-        <StyledButton onClick={handleClick}>
+      {isFormVisible ? (
+        <StyledButton onClick={handleToggleForm}>
           Neue Spende hinzufügen
         </StyledButton>
       ) : (
@@ -98,7 +98,7 @@ export default function AddDonation({ createDonation }) {
           <label htmlFor="checkbox4">Glutenfrei</label>
           <input type="checkbox" id="isGlutenfree" name="isGlutenfree" />
 
-          <button onClick={handleClick}>zurück</button>
+          <button onClick={handleToggleForm}>zurück</button>
           <button type="submit">hinzufügen</button>
         </StyledForm>
       )}
