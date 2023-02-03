@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import MyDonationList from "../components/MyDonationList";
+import MyDonationCard from "../components/MyDonationList";
 import AddDonation from "@/components/AddDonation";
 import Link from "next/link";
 
@@ -8,6 +8,7 @@ export default function MyDonations({
   createDonation,
   handleDelete,
   handleDummyDonations,
+  myUserID,
 }) {
   return (
     <>
@@ -22,7 +23,7 @@ export default function MyDonations({
       <StyledCard>
         {donations.map((donation) => {
           return (
-            <MyDonationList
+            <MyDonationCard
               key={donation.id}
               donation={donation}
               handleDelete={handleDelete}

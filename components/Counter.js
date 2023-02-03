@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
-export default function Counter({ max, counter }) {
+export default function TextLengthCounter({ max, counter }) {
   return (
-    <>
-      {counter < max && counter >= 0 ? (
-        <CharacterCounter> {max - counter} Zeichen</CharacterCounter>
-      ) : (
-        <CharacterCounter>
-          Es sind keine Zeichen mehr übrig - bitte kürze die Beschreibung
-        </CharacterCounter>
-      )}
-    </>
+    <CharacterCounter>
+      {counter < max && counter >= 0
+        ? `${max - counter} Zeichen übrig`
+        : "Es sind keine Zeichen mehr übrig - bitte kürze die Beschreibung"}
+    </CharacterCounter>
   );
 }
 

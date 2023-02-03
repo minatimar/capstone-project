@@ -1,10 +1,16 @@
 import styled from "styled-components";
 import { useState } from "react";
-import Counter from "./Counter";
+import TextLengthCounter from "./Counter";
 
 export default function AddDonation({ createDonation }) {
-  const [isFormVisible, setIsFormVisible] = useState(true);
+  const [isFormVisible, setIsFormVisible] = useState(!true);
   const [count, setCount] = useState(0);
+  const translationMap = {
+    fruitsVegetables: "Obst & Gemüse",
+    homemade: "Selbstgemacht",
+    pastry: "Backwaren",
+  };
+
   function handleToggleForm() {
     setIsFormVisible(!isFormVisible);
   }
@@ -22,7 +28,7 @@ export default function AddDonation({ createDonation }) {
 
   return (
     <StyledDiv>
-      {isFormVisible ? (
+      {!isFormVisible ? (
         <StyledButton onClick={handleToggleForm}>
           Neue Spende hinzufügen
         </StyledButton>
@@ -31,7 +37,9 @@ export default function AddDonation({ createDonation }) {
           <label htmlFor="category">Kategorie:</label>
           <select name="category" id="category" required>
             <option value="">-Wähle bitte eine Kategorie-</option>
-            <option value="fruits&vegetables">Obst & Gemüse</option>
+            <option value={translationMap.fruitsVegetables}>
+              Obst & Gemüse
+            </option>
             <option value="homemade">Selbstgemacht</option>
             <option value="pastry">Backwaren</option>
             <option value="dairy">Käse, Eier & Molkerei</option>
@@ -52,7 +60,7 @@ export default function AddDonation({ createDonation }) {
             onChange={(event) => setCount(event.target.value.length)}
             required
           />
-          <Counter max={250} counter={count} />
+          <TextLengthCounter max={250} counter={count} />
 
           <label htmlFor="bestBefore">Haltbar bis:</label>
           <input type="date" id="bestBefore" name="bestBefore" />
@@ -114,7 +122,7 @@ const StyledForm = styled.form`
   border-radius: 8px;
   gap: 10px;
   margin: 10px;
-  padding: 20px;
+  padding: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;

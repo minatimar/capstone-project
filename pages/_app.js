@@ -6,8 +6,9 @@ import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
   const [donations, setDonations] = useLocalStorageState("donations", {
-    defaultValue: [...userDonations],
+    defaultValue: userDonations,
   });
+  const myUserID = "mina ist toll";
 
   function handleDelete(donationID) {
     const updatedList = donations.filter(
@@ -17,10 +18,12 @@ export default function App({ Component, pageProps }) {
   }
 
   function createDonation(newDonation) {
+    // newDonation= data von AddDonation also die neuen daten aus dem formular
     setDonations((oldDonations) => [
       {
         ...newDonation,
         id: crypto.randomUUID(),
+        userID: myUserID,
       },
       ...oldDonations,
     ]);
@@ -45,6 +48,7 @@ export default function App({ Component, pageProps }) {
         donations={donations}
         createDonation={createDonation}
         handleDummyDonations={handleDummyDonations}
+        myUserID={myUserID}
       />
     </>
   );

@@ -12,7 +12,8 @@
     "isVegetarian": true,
     "isVegan": true,
     "isGlutenfree": true,
-    "isShown": true
+    "isShown": true,
+    "userID": "0"
   },
 
   {
@@ -28,7 +29,8 @@
     "isVegetarian": true,
     "isVegan": true,
     "isGlutenfree": true,
-    "isShown": true
+    "isShown": true,
+    "userID": "1"
   },
   {
     "id": "2",
@@ -43,6 +45,7 @@
     "isVegetarian": true,
     "isVegan": true,
     "isGlutenfree": false,
-    "isShown": true
+    "isShown": true,
+    "userID": "2"
   }
 ]

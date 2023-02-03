@@ -2,20 +2,22 @@ import styled from "styled-components";
 import DonationListItem from "@/components/DonationListItem";
 import Link from "next/link";
 
-export default function HomePage({ donations }) {
+export default function HomePage({ donations, myUserID }) {
   return (
     <>
-      <Link href={"/myDonations"}>MyDonations</Link>
+      <Link myUserID={myUserID} href={"/myDonations"}>
+        MyDonations
+      </Link>
       <h2> Spenden in deiner Nähe: </h2>
-      <StyledCard>
+      <StyledList>
         {donations.map((donation) => {
           return <DonationListItem key={donation.id} donation={donation} />;
         })}
-      </StyledCard>
+      </StyledList>
     </>
   );
 }
-const StyledCard = styled.ul`
+const StyledList = styled.ul`
   list-style: none;
   margin: 0px;
   padding: 0px;
