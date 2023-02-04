@@ -3,6 +3,9 @@ import DonationListItem from "@/components/DonationListItem";
 import Link from "next/link";
 
 export default function HomePage({ donations, myUserID }) {
+  const filteredDonations = donations.filter(
+    (donations) => donations.userID != myUserID
+  );
   return (
     <>
       <Link myUserID={myUserID} href={"/myDonations"}>
@@ -10,7 +13,7 @@ export default function HomePage({ donations, myUserID }) {
       </Link>
       <h2> Spenden in deiner Nähe: </h2>
       <StyledList>
-        {donations.map((donation) => {
+        {filteredDonations.map((donation) => {
           return <DonationListItem key={donation.id} donation={donation} />;
         })}
       </StyledList>

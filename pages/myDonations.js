@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import MyDonationCard from "../components/MyDonationList";
 import AddDonation from "@/components/AddDonation";
 import Link from "next/link";
-
+import DonationListItem from "@/components/DonationListItem";
 export default function MyDonations({
   donations,
   createDonation,
@@ -10,6 +9,9 @@ export default function MyDonations({
   handleDummyDonations,
   myUserID,
 }) {
+  const filteredDonations = donations.filter(
+    (donations) => donations.userID === myUserID
+  );
   return (
     <>
       <h2> Meine Spenden:</h2>
@@ -21,12 +23,13 @@ export default function MyDonations({
       <AddDonation createDonation={createDonation} />
 
       <StyledCard>
-        {donations.map((donation) => {
+        {filteredDonations.map((donation) => {
           return (
-            <MyDonationCard
+            <DonationListItem
               key={donation.id}
               donation={donation}
               handleDelete={handleDelete}
+              myUserID={myUserID}
             />
           );
         })}

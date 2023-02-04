@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }) {
   const [donations, setDonations] = useLocalStorageState("donations", {
     defaultValue: userDonations,
   });
-  const myUserID = "mina ist toll";
+  const myUserID = "pandabär";
 
   function handleDelete(donationID) {
     const updatedList = donations.filter(

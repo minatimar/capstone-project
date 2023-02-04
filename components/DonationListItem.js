@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState } from "react";
 import { StyledCard } from "./StyledCard";
 
-export default function DonationListItem({ donation }) {
+export default function DonationListItem({ donation, myUserID, handleDelete }) {
   const [toggleDonationDetails, setToggleDonationDetails] = useState(false);
   function handleClick() {
     setToggleDonationDetails(!toggleDonationDetails);
@@ -52,6 +52,19 @@ export default function DonationListItem({ donation }) {
         <StyledLessInfoButton type="button" onClick={() => handleClick()}>
           Weniger Infos
         </StyledLessInfoButton>
+        {
+          (donation.userID = myUserID ? (
+            <StyledDeleteButton
+              type="button"
+              onClick={() => handleDelete(donation.id)}
+            >
+              Löschen
+            </StyledDeleteButton>
+          ) : (
+            //editbutton hier her
+            ""
+          ))
+        }
       </StyledCard>
     );
   } else {
@@ -76,4 +89,9 @@ const StyledLessInfoButton = styled.button`
 const StyledMoreInfoButton = styled.button`
   border: solid green;
   background-color: green;
+`;
+
+const StyledDeleteButton = styled.button`
+  border: solid red;
+  background-color: red;
 `;
