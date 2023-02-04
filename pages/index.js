@@ -8,10 +8,10 @@ export default function HomePage({ donations, myUserID }) {
   );
   return (
     <>
+      <h2> Spenden in deiner Nähe: </h2>
       <Link myUserID={myUserID} href={"/myDonations"}>
         MyDonations
       </Link>
-      <h2> Spenden in deiner Nähe: </h2>
       <StyledList>
         {filteredDonations.map((donation) => {
           return <DonationListItem key={donation.id} donation={donation} />;

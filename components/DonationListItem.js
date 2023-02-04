@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { StyledCard } from "./StyledCard";
 
 export default function DonationListItem({ donation, myUserID, handleDelete }) {
   const [toggleDonationDetails, setToggleDonationDetails] = useState(false);
@@ -94,4 +93,15 @@ const StyledMoreInfoButton = styled.button`
 const StyledDeleteButton = styled.button`
   border: solid red;
   background-color: red;
+`;
+const StyledCard = styled.li`
+  border-radius: 8px;
+  gap: 10px;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid black 2px;
 `;

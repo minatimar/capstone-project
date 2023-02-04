@@ -47,5 +47,21 @@
     "isGlutenfree": false,
     "isShown": true,
     "userID": "2"
+  },
+  {
+    "id": "2",
+    "image": "[Image Upload]",
+    "category": "pastry",
+    "description": "hardcoded my donation",
+    "bestBefore": "27.02.2023",
+    "zipCode": "20144",
+    "district": "Eimsbüttel",
+    "contactInformation": "hallöchen@gmail.com",
+    "isBio": false,
+    "isVegetarian": true,
+    "isVegan": true,
+    "isGlutenfree": false,
+    "isShown": true,
+    "userID": "pandabär"
   }
 ]
