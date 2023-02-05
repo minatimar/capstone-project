@@ -19,11 +19,10 @@ export default function App({ Component, pageProps }) {
     setDonations(updatedList);
   }
 
-  function createDonation(newDonation) {
-    // newDonation= data von AddDonation also die neuen daten aus dem formular
+  function createDonation(newDonationData) {
     setDonations((oldDonations) => [
       {
-        ...newDonation,
+        ...newDonationData,
         id: crypto.randomUUID(),
         userID: myUserID,
       },

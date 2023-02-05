@@ -3,7 +3,7 @@ import { useState } from "react";
 import TextLengthCounter from "./Counter";
 
 export default function AddDonation({ createDonation }) {
-  const [isFormVisible, setIsFormVisible] = useState(!true);
+  const [isFormVisible, setIsFormVisible] = useState(false);
   const [count, setCount] = useState(0);
   const translationMap = {
     fruitsVegetables: "Obst & Gemüse",
@@ -18,9 +18,9 @@ export default function AddDonation({ createDonation }) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData);
+    const newDonationData = Object.fromEntries(formData);
 
-    createDonation(data);
+    createDonation(newDonationData);
     setCount(0);
     event.target.reset();
     setIsFormVisible(!isFormVisible);
@@ -58,7 +58,7 @@ export default function AddDonation({ createDonation }) {
             maxLength="250"
             pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
             onChange={(event) => setCount(event.target.value.length)}
-            required
+            //required
           />
           <TextLengthCounter max={250} counter={count} />
 
@@ -72,7 +72,7 @@ export default function AddDonation({ createDonation }) {
             name="zipCode"
             pattern="^[0-9][0-9][0-9][0-9][0-9]$"
             title="Bitte 5-stellige PLZ eingeben"
-            required
+            //required
           />
 
           <label htmlFor="district"> Stadtteil: Hamburg-</label>
@@ -92,7 +92,7 @@ export default function AddDonation({ createDonation }) {
             name="contactInformation"
             maxLength="25"
             pattern="^[a-zA-ZäüöÄÜÖß0-9 @_-+&*.,:;!?()]$"
-            required
+            //required
           />
 
           <label htmlFor="checkbox1">Bio</label>
