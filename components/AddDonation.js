@@ -9,6 +9,11 @@ export default function AddDonation({ createDonation }) {
     fruitsVegetables: "Obst & Gemüse",
     homemade: "Selbstgemacht",
     pastry: "Backwaren",
+    dairy: "Käse, Eier & Molkerei",
+    frozen: "Tiefkühlkost",
+    sweetSalty: "Süßes & Salziges",
+    beverage: "Getränke",
+    meatFish: "Fleisch & Fisch",
   };
 
   function handleToggleForm() {
@@ -40,13 +45,13 @@ export default function AddDonation({ createDonation }) {
             <option value={translationMap.fruitsVegetables}>
               Obst & Gemüse
             </option>
-            <option value="homemade">Selbstgemacht</option>
-            <option value="pastry">Backwaren</option>
-            <option value="dairy">Käse, Eier & Molkerei</option>
-            <option value="frozen">Tiefkühlkost</option>
-            <option value="sweet&salty">Süßes & Salziges</option>
-            <option value="beverage">Getränke</option>
-            <option value="meat&fish">Fleisch & Fisch</option>
+            <option value={translationMap.homemade}>Selbstgemacht</option>
+            <option value={translationMap.pastry}>Backwaren</option>
+            <option value={translationMap.dairy}>Käse, Eier & Molkerei</option>
+            <option value={translationMap.frozen}>Tiefkühlkost</option>
+            <option value={translationMap.sweetSalty}>Süßes & Salziges</option>
+            <option value={translationMap.beverage}>Getränke</option>
+            <option value={translationMap.meatFish}>Fleisch & Fisch</option>
           </select>
           <label htmlFor="description">Beschreibung:</label>
           <textarea
