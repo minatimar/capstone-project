@@ -16,34 +16,34 @@ export default function DonationListItem({ donation, myUserID, handleDelete }) {
         <p>PLZ: {donation.zipCode}</p>
         <p>Stadtteil: Hamburg- {donation.district}</p>
         <p>Kontakt: {donation.contactInformation}</p>
-        <label for="checkbox1">Bio</label>
+        <label for="isBio">Bio</label>
         <input
           type="checkbox"
-          id="checkbox1"
+          id="isBio"
           name="checkbox1"
           checked={donation.isBio}
           readOnly
         />
-        <label for="checkbox2">Vegetarisch</label>
+        <label htmlfor="isVegetarian">Vegetarisch</label>
         <input
           type="checkbox"
-          id="checkbox2"
+          id="isVegetarian"
           name="checkbox2"
           checked={donation.isVegetarian}
           readOnly
         />
-        <label for="checkbox3">Vegan</label>
+        <label htmlFor="isVegan">Vegan</label>
         <input
           type="checkbox"
-          id="checkbox3"
+          id="isVegan"
           name="checkbox3"
           checked={donation.isVegan}
           readOnly
         />
-        <label for="checkbox4">Glutenfrei</label>
+        <label htmlFor="isGlutenfree">Glutenfrei</label>
         <input
           type="checkbox"
-          id="checkbox4"
+          id="isGlutenfree"
           name="checkbox4"
           checked={donation.isGlutenfree}
           readOnly

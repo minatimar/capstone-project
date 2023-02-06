@@ -7,9 +7,6 @@ export default function AddDonation({ createDonation }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [count, setCount] = useState(0);
 
-  function handleToggleForm() {
-    setIsFormVisible(!isFormVisible);
-  }
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -25,7 +22,7 @@ export default function AddDonation({ createDonation }) {
   return (
     <StyledDiv>
       {!isFormVisible ? (
-        <StyledButton onClick={handleToggleForm}>
+        <StyledButton onClick={() => setIsFormVisible(!isFormVisible)}>
           Neue Spende hinzufügen
         </StyledButton>
       ) : (
@@ -62,7 +59,7 @@ export default function AddDonation({ createDonation }) {
             type="text"
             id="zipCode"
             name="zipCode"
-            pattern="^[0-9][0-9][0-9][0-9][0-9]$"
+            pattern="^[2-9][0-9][0-9][0-9][0-9]$"
             title="Bitte 5-stellige PLZ eingeben"
             //required
           />
@@ -73,8 +70,8 @@ export default function AddDonation({ createDonation }) {
             id="district"
             name="district"
             title="Bitte Stadtteil angeben"
-            pattern="^[a-zA-ZäüöÄÜÖß _-+&:()]$"
-            maxLength="15"
+            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
+            maxLength="20"
           />
 
           <label htmlFor="contactInformation">Kontaktinformation:</label>
@@ -83,22 +80,24 @@ export default function AddDonation({ createDonation }) {
             id="contactInformation"
             name="contactInformation"
             maxLength="25"
-            pattern="^[a-zA-ZäüöÄÜÖß0-9 @_-+&*.,:;!?()]$"
+            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
             //required
           />
 
-          <label htmlFor="checkbox1">Bio</label>
+          <label htmlFor="isBio">Bio</label>
           <input type="checkbox" id="isBio" name="isBio" />
 
-          <label htmlFor="checkbox2">Vegetarisch</label>
+          <label htmlFor="isVegetarian">Vegetarisch</label>
           <input type="checkbox" id="isVegetarian" name="isVegetarian" />
-          <label htmlFor="checkbox3">Vegan</label>
+          <label htmlFor="isVegan">Vegan</label>
           <input type="checkbox" id="isVegan" name="isVegan" />
 
-          <label htmlFor="checkbox4">Glutenfrei</label>
+          <label htmlFor="isGlutenfree">Glutenfrei</label>
           <input type="checkbox" id="isGlutenfree" name="isGlutenfree" />
 
-          <button onClick={handleToggleForm}>zurück</button>
+          <button onClick={() => setIsFormVisible(!isFormVisible)}>
+            zurück
+          </button>
           <button type="submit">hinzufügen</button>
         </StyledForm>
       )}

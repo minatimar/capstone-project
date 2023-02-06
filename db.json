@@ -2,7 +2,7 @@
   {
     "id": "0",
     "image": "[Image Upload]",
-    "category": "homemade",
+    "category": "Selbstgemacht",
     "description": "Gemüselasagne",
     "bestBefore": "22.02.2023",
     "zipCode": "22149",
@@ -19,7 +19,7 @@
   {
     "id": "1",
     "image": "[Image Upload]",
-    "category": "fruits&vegetables",
+    "category": "Obst & Gemüse",
     "description": "2 Mangos",
     "bestBefore": "27.02.2023",
     "zipCode": "20095",
@@ -35,7 +35,7 @@
   {
     "id": "2",
     "image": "[Image Upload]",
-    "category": "pastry",
+    "category": "Backwaren",
     "description": "Vollkornbrot",
     "bestBefore": "27.02.2023",
     "zipCode": "20144",
@@ -51,8 +51,8 @@
   {
     "id": "2",
     "image": "[Image Upload]",
-    "category": "pastry",
-    "description": "hardcoded my donation",
+    "category": "Selbstgemacht",
+    "description": "Kürbissuppe",
     "bestBefore": "27.02.2023",
     "zipCode": "20144",
     "district": "Eimsbüttel",
