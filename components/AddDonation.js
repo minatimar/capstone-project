@@ -1,20 +1,11 @@
 import styled from "styled-components";
 import { useState } from "react";
 import TextLengthCounter from "./Counter";
+import categoryData from "../helper/category.json";
 
 export default function AddDonation({ createDonation }) {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [count, setCount] = useState(0);
-  const translationMap = {
-    fruitsVegetables: "Obst & Gemüse",
-    homemade: "Selbstgemacht",
-    pastry: "Backwaren",
-    dairy: "Käse, Eier & Molkerei",
-    frozen: "Tiefkühlkost",
-    sweetSalty: "Süßes & Salziges",
-    beverage: "Getränke",
-    meatFish: "Fleisch & Fisch",
-  };
 
   function handleToggleForm() {
     setIsFormVisible(!isFormVisible);
@@ -42,17 +33,13 @@ export default function AddDonation({ createDonation }) {
           <label htmlFor="category">Kategorie:</label>
           <select name="category" id="category" required>
             <option value="">-Wähle bitte eine Kategorie-</option>
-            <option value={translationMap.fruitsVegetables}>
-              Obst & Gemüse
-            </option>
-            <option value={translationMap.homemade}>Selbstgemacht</option>
-            <option value={translationMap.pastry}>Backwaren</option>
-            <option value={translationMap.dairy}>Käse, Eier & Molkerei</option>
-            <option value={translationMap.frozen}>Tiefkühlkost</option>
-            <option value={translationMap.sweetSalty}>Süßes & Salziges</option>
-            <option value={translationMap.beverage}>Getränke</option>
-            <option value={translationMap.meatFish}>Fleisch & Fisch</option>
+            {categoryData.map((category) => (
+              <option key={category.id} value={category.category}>
+                {category.category}
+              </option>
+            ))}
           </select>
+
           <label htmlFor="description">Beschreibung:</label>
           <textarea
             type="text"
