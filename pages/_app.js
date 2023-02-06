@@ -43,7 +43,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <GlobalStyle />
       <StyledHeadline>
-        <Image src={logo} alt="logo" width={300} height={70} />
+        <Image src={logo} alt="Die Essensretter Logo" width={300} height={70} />
       </StyledHeadline>
       <Component
         handleDelete={handleDelete}
