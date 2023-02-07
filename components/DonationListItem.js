@@ -1,55 +1,65 @@
 import styled from "styled-components";
 import { useState } from "react";
 
-export default function DonationListItem({ donation }) {
-  const [toggle, setToggle] = useState(false);
+export default function DonationListItem({ donation, myUserID, handleDelete }) {
+  const [toggleDonationDetails, setToggleDonationDetails] = useState(false);
   function handleClick() {
-    setToggle(!toggle);
+    setToggleDonationDetails(!toggleDonationDetails);
   }
-  if (toggle) {
+  if (toggleDonationDetails) {
     return (
       <StyledCard>
         <p>{donation.image}</p>
         <p>Kategorie: {donation.category}</p>
         <p>Beschreibung: {donation.description}</p>
-        <p>Entfernung: {donation.distance}</p>
-        <p>Haltbar bis: {donation.good_before}</p>
-        <p>Kontakt: {donation.contact_information}</p>
-        <label for="checkbox1">Bio</label>
+        <p>Haltbar bis: {donation.bestBefore}</p>
+        <p>PLZ: {donation.zipCode}</p>
+        <p>Stadtteil: Hamburg- {donation.district}</p>
+        <p>Kontakt: {donation.contactInformation}</p>
+        <label for="isBio">Bio</label>
         <input
           type="checkbox"
-          id="checkbox1"
+          id="isBio"
           name="checkbox1"
-          value="value1"
           checked={donation.isBio}
+          readOnly
         />
-        <label for="checkbox2">Vegetarisch</label>
+        <label htmlfor="isVegetarian">Vegetarisch</label>
         <input
           type="checkbox"
-          id="checkbox2"
+          id="isVegetarian"
           name="checkbox2"
-          value="value2"
           checked={donation.isVegetarian}
+          readOnly
         />
-        <label for="checkbox3">Vegan</label>
+        <label htmlFor="isVegan">Vegan</label>
         <input
           type="checkbox"
-          id="checkbox3"
+          id="isVegan"
           name="checkbox3"
-          value="value3"
           checked={donation.isVegan}
+          readOnly
         />
-        <label for="checkbox4">Glutenfrei</label>
+        <label htmlFor="isGlutenfree">Glutenfrei</label>
         <input
           type="checkbox"
-          id="checkbox4"
+          id="isGlutenfree"
           name="checkbox4"
-          value="value4"
           checked={donation.isGlutenfree}
+          readOnly
         />
         <StyledLessInfoButton type="button" onClick={() => handleClick()}>
           Weniger Infos
         </StyledLessInfoButton>
+        {donation.userID === myUserID && (
+          //editbutton in die blauen klammern
+          <StyledDeleteButton
+            type="button"
+            onClick={() => handleDelete(donation.id)}
+          >
+            Löschen
+          </StyledDeleteButton>
+        )}
       </StyledCard>
     );
   } else {
@@ -57,10 +67,20 @@ export default function DonationListItem({ donation }) {
       <StyledCard>
         <p>{donation.image}</p>
         <p>Beschreibung: {donation.description}</p>
-        <p>Entfernung: {donation.distance}</p>
+        <p>PLZ: {donation.zipCode}</p>
+        <p>Stadtteil: Hamburg- {donation.district}</p>
         <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
           Mehr Infos
         </StyledMoreInfoButton>
+        {donation.userID === myUserID && (
+          //editbutton in die blauen klammern
+          <StyledDeleteButton
+            type="button"
+            onClick={() => handleDelete(donation.id)}
+          >
+            Löschen
+          </StyledDeleteButton>
+        )}
       </StyledCard>
     );
   }
@@ -73,6 +93,11 @@ const StyledLessInfoButton = styled.button`
 const StyledMoreInfoButton = styled.button`
   border: solid green;
   background-color: green;
+`;
+
+const StyledDeleteButton = styled.button`
+  border: solid red;
+  background-color: red;
 `;
 const StyledCard = styled.li`
   border-radius: 8px;

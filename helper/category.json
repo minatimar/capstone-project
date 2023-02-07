@@ -1,0 +1,32 @@
+[
+  {
+    "id": "0",
+    "category": "Obst & Gemüse"
+  },
+  {
+    "id": "1",
+    "category": "Selbstgemacht"
+  },
+
+  {
+    "id": "2",
+    "category": "Backwaren"
+  },
+
+  {
+    "id": "3",
+    "category": "Käse, Eier & Molkerei"
+  },
+  { "id": "4", "category": "Tiefkühlkost" },
+
+  {
+    "id": "5",
+    "category": "Süßes & Salziges"
+  },
+  {
+    "id": "6",
+    "category": "Getränke"
+  },
+
+  { "id": "7", "category": "Fleisch & Fisch" }
+]

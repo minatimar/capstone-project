@@ -1,13 +1,19 @@
 import styled from "styled-components";
 import DonationListItem from "@/components/DonationListItem";
-import donations from "../db.json";
+import Link from "next/link";
 
-export default function HomePage() {
+export default function HomePage({ donations, myUserID }) {
+  const filteredDonations = donations.filter(
+    (donations) => donations.userID != myUserID
+  );
   return (
     <>
       <h2> Spenden in deiner Nähe: </h2>
+      <Link myUserID={myUserID} href={"/myDonations"}>
+        MyDonations
+      </Link>
       <StyledList>
-        {donations.map((donation) => {
+        {filteredDonations.map((donation) => {
           return <DonationListItem key={donation.id} donation={donation} />;
         })}
       </StyledList>
