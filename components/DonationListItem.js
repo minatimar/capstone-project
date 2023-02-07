@@ -72,6 +72,15 @@ export default function DonationListItem({ donation, myUserID, handleDelete }) {
         <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
           Mehr Infos
         </StyledMoreInfoButton>
+        {donation.userID === myUserID && (
+          //editbutton in die blauen klammern
+          <StyledDeleteButton
+            type="button"
+            onClick={() => handleDelete(donation.id)}
+          >
+            Löschen
+          </StyledDeleteButton>
+        )}
       </StyledCard>
     );
   }

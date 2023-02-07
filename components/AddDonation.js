@@ -45,9 +45,9 @@ export default function AddDonation({ createDonation }) {
             cols="30"
             rows="5"
             maxLength="250"
-            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
+            pattern="^[a-zA-ZäüöÄÜÖß0-9 _+&*.,:;!?()%]+"
             onChange={(event) => setCount(event.target.value.length)}
-            required
+            //required
           />
           <TextLengthCounter max={250} counter={count} />
 
@@ -69,9 +69,9 @@ export default function AddDonation({ createDonation }) {
             id="district"
             name="district"
             title="Bitte Stadtteil angeben"
-            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
+            pattern="^[a-zA-ZäüöÄÜÖß0-9 _+&*.,:;!?()%]+"
             maxLength="20"
-            required
+            //required
           />
 
           <label htmlFor="contactInformation">Kontaktinformation:</label>
@@ -80,8 +80,8 @@ export default function AddDonation({ createDonation }) {
             id="contactInformation"
             name="contactInformation"
             maxLength="25"
-            pattern="[a-zA-ZäüöÄÜÖß0-9 _-+&*.,:;!?()%€]"
-            required
+            pattern="^[a-zA-ZäüöÄÜÖß0-9 _+&*.,:;!?()%]+"
+            // required
           />
 
           <label htmlFor="isBio">Bio</label>
@@ -98,7 +98,7 @@ export default function AddDonation({ createDonation }) {
           <button onClick={() => setIsFormVisible(!isFormVisible)}>
             zurück
           </button>
-          <button type="submit">hinzufügen</button>
+          <button type="submit">speichern</button>
         </StyledForm>
       )}
     </StyledDiv>
@@ -119,6 +119,7 @@ const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
   border: solid red 2px;
+  word-wrap: break-word;
 `;
 
 const StyledButton = styled.button`
