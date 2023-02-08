@@ -80,7 +80,7 @@ export default function AddDonation({ createDonation }) {
             id="contactInformation"
             name="contactInformation"
             maxLength="25"
-            pattern="^[a-zA-ZäüöÄÜÖß0-9 _+&*.,:;!?()%]+"
+            pattern="^[a-zA-ZäüöÄÜÖß0-9 @_+&*.,:]+"
             // required
           />
 

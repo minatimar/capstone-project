@@ -5,9 +5,11 @@ import DonationListItem from "@/components/DonationListItem";
 
 export default function MyDonations({
   donations,
+  setDonations,
   createDonation,
   handleDelete,
   handleDummyDonations,
+  handleEditDonation,
   myUserID,
 }) {
   const filteredDonations = donations.filter(
@@ -27,10 +29,13 @@ export default function MyDonations({
         {filteredDonations.map((donation) => {
           return (
             <DonationListItem
+              donations={donations}
+              setDonations={setDonations}
               key={donation.id}
               donation={donation}
               handleDelete={handleDelete}
               myUserID={myUserID}
+              handleEditDonation={handleEditDonation}
             />
           );
         })}

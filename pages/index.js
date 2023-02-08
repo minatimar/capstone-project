@@ -2,10 +2,11 @@ import styled from "styled-components";
 import DonationListItem from "@/components/DonationListItem";
 import Link from "next/link";
 
-export default function HomePage({ donations, myUserID }) {
+export default function HomePage({ donations, myUserID, handleEditDonation }) {
   const filteredDonations = donations.filter(
     (donations) => donations.userID != myUserID
   );
+
   return (
     <>
       <h2> Spenden in deiner Nähe: </h2>
@@ -14,7 +15,15 @@ export default function HomePage({ donations, myUserID }) {
       </Link>
       <StyledList>
         {filteredDonations.map((donation) => {
-          return <DonationListItem key={donation.id} donation={donation} />;
+          return (
+            <DonationListItem
+              key={donation.id}
+              donation={donation}
+              donations={donations}
+              handleEditDonation={handleEditDonation}
+              myUserID={myUserID}
+            />
+          );
         })}
       </StyledList>
     </>
