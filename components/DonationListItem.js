@@ -76,7 +76,6 @@ export default function DonationListItem({
               Weniger Infos
             </StyledLessInfoButton>
             {donation.userID === myUserID &&
-              //editbutton in die blauen klammern
               ((
                 <StyledDeleteButton
                   type="button"
@@ -121,14 +120,6 @@ export default function DonationListItem({
               Mehr Infos
             </StyledMoreInfoButton>
             {donation.userID === myUserID && (
-              //   (
-              //   <StyledEditButton
-              //     type="button"
-              //     onClick={() => setIsEdit(!isEdit)}
-              //   >
-              //     Bearbeiten
-              //   </StyledEditButton>
-              // ),
               <StyledDeleteButton
                 type="button"
                 onClick={() => handleDelete(donation.id)}

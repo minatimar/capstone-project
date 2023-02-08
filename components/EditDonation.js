@@ -16,7 +16,7 @@ export default function EditDonation({
 
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    const userDonation = { ...data, userID: myUserID };
+    const userDonation = { ...data, userID: myUserID, id: donation.id };
 
     handleEditDonation(userDonation, donation.id);
     setIsEdit(!isEdit);

@@ -23,8 +23,7 @@ export default function App({ Component, pageProps }) {
     setDonations(
       donations.map((donationItem) => {
         if (donationItem.id === _donationId) {
-          const updatedDonation = { ..._editDonationData, id: _donationId };
-          return updatedDonation;
+          return _editDonationData;
         } else {
           return donationItem;
         }
