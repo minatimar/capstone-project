@@ -18,38 +18,13 @@ export default function App({ Component, pageProps }) {
     );
     setDonations(updatedList);
   }
-  // function EditDonation(oldDonations, donationID) {
-  //   const updatedList = donations.filter(
-  //     (donations) => donationID === donations.id,
-  //     {
-  //       defaultValue: oldDonations,
-  //     }
-  //   );
-  //   setDonations(updatedList);
-  // }
-
-  // function handleEditDonation(_editDonationData, _donationId) {
-  //   setDonations((prevDonations) => {
-  //   donations.map((donationItem) => {
-  //     if (donationItem.id === _donationId) [
-  //         {
-  //           ..._editDonationData,
-  //           id: _donationId,
-  //           userID: myUserID,
-  //         },
-  //         // ...prevDonations,
-  //       ]);
-  //     } else {
-  //       donationItem;
-  //     }
-  //   });
-  // }
 
   function handleEditDonation(_editDonationData, _donationId) {
     setDonations(
       donations.map((donationItem) => {
         if (donationItem.id === _donationId) {
-          return _editDonationData;
+          const updatedDonation = { ..._editDonationData, id: _donationId };
+          return updatedDonation;
         } else {
           return donationItem;
         }
