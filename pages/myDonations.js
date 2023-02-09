@@ -18,8 +18,6 @@ export default function MyDonations({
   return (
     <>
       <h2> Meine Spenden:</h2>
-      <Link href={"/"}>back</Link>
-      <br />
       <button type="button" onClick={handleDummyDonations}>
         Reset to default
       </button>
@@ -40,9 +38,25 @@ export default function MyDonations({
           );
         })}
       </StyledCard>
+      <StyledNavigation>
+        <Link href={"/"}>Ich möchte retten!</Link>
+      </StyledNavigation>
     </>
   );
 }
+
+const StyledNavigation = styled.nav`
+  z-index: 1;
+  text-align: center;
+  justify-content: center;
+  position: fixed;
+  background-color: green;
+  padding: 10px 10px 10px 10px;
+  margin: 0;
+  width: 100%;
+  bottom: 0;
+`;
+
 const StyledCard = styled.ul`
   list-style: none;
   margin: 0px;
