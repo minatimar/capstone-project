@@ -38,8 +38,8 @@ export default function MyDonations({
           );
         })}
       </StyledCard>
-      <StyledNavigation>
-        <Link href={"/"}>Ich möchte retten!</Link>
+      <StyledNavigation as="a" href={"/"}>
+        Ich möchte retten!
       </StyledNavigation>
     </>
   );
@@ -55,8 +55,11 @@ const StyledNavigation = styled.nav`
   margin: 0;
   width: 100%;
   bottom: 0;
+  color: white;
+  text-decoration: none;
+  color: black;
+  text-decoration: none;
 `;
-
 const StyledCard = styled.ul`
   list-style: none;
   margin: 0px;

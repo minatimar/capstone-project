@@ -28,7 +28,7 @@ export default function AddDonation({ createDonation }) {
       ) : (
         <StyledForm onSubmit={handleSubmit}>
           <label htmlFor="category">Kategorie:</label>
-          <select name="category" id="category" required>
+          <select name="category" id="category">
             <option value="">-Wähle bitte eine Kategorie-</option>
             {categoryData.map((category) => (
               <option key={category.id} value={category.category}>
@@ -47,7 +47,6 @@ export default function AddDonation({ createDonation }) {
             maxLength="250"
             pattern="^[a-zA-ZäüöÄÜÖß0-9 _+&*.,:;!?()%]+"
             onChange={(event) => setCount(event.target.value.length)}
-            //required
           />
           <TextLengthCounter max={250} counter={count} />
 
@@ -71,7 +70,6 @@ export default function AddDonation({ createDonation }) {
             title="Bitte Stadtteil angeben"
             pattern="^[a-zA-ZäüöÄÜÖß0-9 _+&*.,:;!?()%]+"
             maxLength="20"
-            //required
           />
 
           <label htmlFor="contactInformation">Kontaktinformation:</label>
@@ -81,7 +79,6 @@ export default function AddDonation({ createDonation }) {
             name="contactInformation"
             maxLength="25"
             pattern="^[a-zA-ZäüöÄÜÖß0-9 @_+&*.,:]+"
-            // required
           />
 
           <label htmlFor="isBio">Bio</label>

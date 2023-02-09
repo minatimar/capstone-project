@@ -10,9 +10,6 @@ export default function HomePage({ donations, myUserID, handleEditDonation }) {
   return (
     <>
       <h2> Spenden in deiner Nähe: </h2>
-      {/* <Link myUserID={myUserID} href={"/myDonations"}>
-        MyDonations
-      </Link> */}
       <StyledList>
         {filteredDonations.map((donation) => {
           return (
@@ -26,10 +23,9 @@ export default function HomePage({ donations, myUserID, handleEditDonation }) {
           );
         })}
       </StyledList>
-      <StyledNavigation>
-        <Link myUserID={myUserID} href={"/myDonations"}>
-          Ich möchte spenden!
-        </Link>
+
+      <StyledNavigation as="a" myUserID={myUserID} href={"/myDonations"}>
+        Ich möchte spenden!
       </StyledNavigation>
     </>
   );
@@ -45,6 +41,8 @@ const StyledNavigation = styled.nav`
   margin: 0;
   width: 100%;
   bottom: 0;
+  color: black;
+  text-decoration: none;
 `;
 
 const StyledList = styled.ul`
