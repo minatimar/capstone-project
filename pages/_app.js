@@ -19,6 +19,18 @@ export default function App({ Component, pageProps }) {
     setDonations(updatedList);
   }
 
+  function handleEditDonation(_editDonationData, _donationId) {
+    setDonations(
+      donations.map((donationItem) => {
+        if (donationItem.id === _donationId) {
+          return _editDonationData;
+        } else {
+          return donationItem;
+        }
+      })
+    );
+  }
+
   function createDonation(newDonationData) {
     setDonations((oldDonations) => [
       {
@@ -52,6 +64,7 @@ export default function App({ Component, pageProps }) {
         createDonation={createDonation}
         handleDummyDonations={handleDummyDonations}
         myUserID={myUserID}
+        handleEditDonation={handleEditDonation}
       />
     </>
   );
