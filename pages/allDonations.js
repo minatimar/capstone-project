@@ -1,40 +1,34 @@
 import styled from "styled-components";
-import AddDonation from "@/components/AddDonation";
 import DonationListItem from "@/components/DonationListItem";
 
-export default function MyDonations({
+export default function AllDonations({
   donations,
-  setDonations,
-  createDonation,
-  handleDelete,
-  handleDummyDonations,
-  handleEditDonation,
   myUserID,
+  handleEditDonation,
 }) {
   const filteredDonations = donations.filter(
-    (donations) => donations.userID === myUserID
+    (donations) => donations.userID != myUserID
   );
+
   return (
     <>
-      <h2> Meine Spenden:</h2>
-      <AddDonation createDonation={createDonation} />
-      <StyledCard>
+      <h2> Spenden in deiner Nähe: </h2>
+      <StyledList>
         {filteredDonations.map((donation) => {
           return (
             <DonationListItem
-              donations={donations}
-              setDonations={setDonations}
               key={donation.id}
               donation={donation}
-              handleDelete={handleDelete}
-              myUserID={myUserID}
+              donations={donations}
               handleEditDonation={handleEditDonation}
+              myUserID={myUserID}
             />
           );
         })}
-      </StyledCard>
-      <StyledNavigation as="a" href={"/allDonations"}>
-        Ich möchte retten!
+      </StyledList>
+
+      <StyledNavigation as="a" myUserID={myUserID} href={"/myDonations"}>
+        Ich möchte spenden!
       </StyledNavigation>
     </>
   );
@@ -50,12 +44,11 @@ const StyledNavigation = styled.nav`
   margin: 0;
   width: 100%;
   bottom: 0;
-  color: white;
-  text-decoration: none;
   color: black;
   text-decoration: none;
 `;
-const StyledCard = styled.ul`
+
+const StyledList = styled.ul`
   list-style: none;
   margin: 0px;
   padding: 0px;

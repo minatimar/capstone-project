@@ -5,13 +5,14 @@ import Head from "next/head";
 import useLocalStorageState from "use-local-storage-state";
 import Image from "next/image";
 import logo from "../assets/logo.png";
+import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }) {
   const [donations, setDonations] = useLocalStorageState("donations", {
     defaultValue: userDonations,
   });
   const myUserID = "pandabär";
-
+  const router = useRouter();
   function handleDelete(donationID) {
     const updatedList = donations.filter(
       (donations) => donationID !== donations.id
@@ -54,9 +55,11 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <GlobalStyle />
-      <StyledHeadline>
-        <Image src={logo} alt="Essensretter Logo" width={300} height={70} />
-      </StyledHeadline>
+      {router.pathname !== "/" && (
+        <StyledHeadline>
+          <Image src={logo} alt="Essensretter Logo" width={300} height={70} />
+        </StyledHeadline>
+      )}
       <Component
         handleDelete={handleDelete}
         {...pageProps}

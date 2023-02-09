@@ -133,4 +133,5 @@ const StyledButton = styled.button`
   align-items: center;
   border: solid green 2px;
   background-color: green;
+  width: 94%;
 `;
