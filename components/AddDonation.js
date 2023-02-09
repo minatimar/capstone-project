@@ -47,12 +47,12 @@ export default function AddDonation({ createDonation }) {
             maxLength="250"
             pattern="^[a-zA-ZäüöÄÜÖß0-9 _+&*.,:;!?()%]+"
             onChange={(event) => setCount(event.target.value.length)}
-            //required
+            required
           />
           <TextLengthCounter max={250} counter={count} />
 
           <label htmlFor="bestBefore">Haltbar bis:</label>
-          <input type="date" id="bestBefore" name="bestBefore" />
+          <input type="date" id="bestBefore" name="bestBefore" required />
 
           <label htmlFor="zipCode">Postleitzahl:</label>
           <input
@@ -61,6 +61,7 @@ export default function AddDonation({ createDonation }) {
             name="zipCode"
             pattern="^[2-9][0-9][0-9][0-9][0-9]$"
             title="Bitte 5-stellige PLZ eingeben"
+            required
           />
 
           <label htmlFor="district"> Stadtteil: Hamburg-</label>
@@ -71,7 +72,6 @@ export default function AddDonation({ createDonation }) {
             title="Bitte Stadtteil angeben"
             pattern="^[a-zA-ZäüöÄÜÖß0-9 _+&*.,:;!?()%]+"
             maxLength="20"
-            //required
           />
 
           <label htmlFor="contactInformation">Kontaktinformation:</label>
@@ -81,7 +81,7 @@ export default function AddDonation({ createDonation }) {
             name="contactInformation"
             maxLength="25"
             pattern="^[a-zA-ZäüöÄÜÖß0-9 @_+&*.,:]+"
-            // required
+            required
           />
 
           <label htmlFor="isBio">Bio</label>
