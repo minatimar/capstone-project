@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import AddDonation from "@/components/AddDonation";
-import Link from "next/link";
 import DonationListItem from "@/components/DonationListItem";
 
 export default function MyDonations({
@@ -18,11 +17,7 @@ export default function MyDonations({
   return (
     <>
       <h2> Meine Spenden:</h2>
-      <button type="button" onClick={handleDummyDonations}>
-        Reset to default
-      </button>
       <AddDonation createDonation={createDonation} />
-
       <StyledCard>
         {filteredDonations.map((donation) => {
           return (

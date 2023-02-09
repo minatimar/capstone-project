@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import DonationListItem from "@/components/DonationListItem";
-import Link from "next/link";
 
 export default function HomePage({ donations, myUserID, handleEditDonation }) {
   const filteredDonations = donations.filter(

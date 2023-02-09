@@ -1,7 +1,7 @@
 [
   {
     "id": "0",
-    "image": "[Image Upload]",
+    "image": "[Image]",
     "category": "Selbstgemacht",
     "description": "Gemüselasagne",
     "bestBefore": "22.02.2023",
@@ -18,7 +18,7 @@
 
   {
     "id": "1",
-    "image": "[Image Upload]",
+    "image": "[Image]",
     "category": "Obst & Gemüse",
     "description": "2 Mangos",
     "bestBefore": "27.02.2023",
@@ -34,7 +34,7 @@
   },
   {
     "id": "2",
-    "image": "[Image Upload]",
+    "image": "[Image]",
     "category": "Backwaren",
     "description": "Vollkornbrot",
     "bestBefore": "27.02.2023",
@@ -50,7 +50,7 @@
   },
   {
     "id": "3",
-    "image": "[Image Upload]",
+    "image": "[Image]",
     "category": "Selbstgemacht",
     "description": "Kürbissuppe",
     "bestBefore": "27.02.2023",
@@ -61,7 +61,6 @@
     "isVegetarian": true,
     "isVegan": true,
     "isGlutenfree": false,
-    "isShown": true,
-    "userID": "pandabär"
+    "isShown": true
   }
 ]
