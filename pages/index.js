@@ -35,6 +35,7 @@ const StyledButton = styled.button`
 `;
 const StyledSection = styled.section`
   display: flex;
+  justify-content: center;
 `;
 const StyledImage = styled.div`
   top: 0;
