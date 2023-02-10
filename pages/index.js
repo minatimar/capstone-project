@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <StyledDiv>
+    <Wrapper>
       <StyledImage>
         <Image
           src={logoHomepage}
@@ -21,7 +21,7 @@ export default function HomePage() {
           Ich möchte retten!
         </StyledButton>
       </StyledSection>
-    </StyledDiv>
+    </Wrapper>
   );
 }
 
@@ -32,6 +32,8 @@ const StyledButton = styled.button`
   padding: 20px;
   border: solid green 2px;
   background-color: green;
+  text-decoration: none;
+  color: black;
 `;
 const StyledSection = styled.section`
   display: flex;
@@ -45,7 +47,7 @@ const StyledImage = styled.div`
   margin: 0;
   background-color: white;
 `;
-const StyledDiv = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;

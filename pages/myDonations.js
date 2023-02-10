@@ -50,10 +50,8 @@ const StyledNavigation = styled.nav`
   margin: 0;
   width: 100%;
   bottom: 0;
-  color: white;
   text-decoration: none;
   color: black;
-  text-decoration: none;
 `;
 const StyledCard = styled.ul`
   list-style: none;
