@@ -10,7 +10,7 @@ export default function AllDonations({
   const [zipCode, setZipCode] = useState("");
 
   const filteredDonations = donations
-    .filter((donations) => donations.userID != myUserID)
+    .filter((donation) => donation.userID != myUserID)
     .filter((donation) => donation.zipCode.includes(zipCode));
 
   return (
@@ -21,7 +21,7 @@ export default function AllDonations({
         pattern="^[2-9][0-9][0-9][0-9][0-9]$"
         title="Bitte 5-stellige PLZ eingeben"
         value={zipCode}
-        onChange={(e) => setZipCode(e.target.value)}
+        onChange={(event) => setZipCode(event.target.value)}
         placeholder="Nach deiner PLZ filtern..."
       />
       <StyledList>
