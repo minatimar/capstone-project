@@ -18,9 +18,11 @@ export default function AllDonations({
       <h2> Spenden in deiner Nähe: </h2>
       <input
         type="text"
+        pattern="^[2-9][0-9][0-9][0-9][0-9]$"
+        title="Bitte 5-stellige PLZ eingeben"
         value={zipCode}
         onChange={(e) => setZipCode(e.target.value)}
-        placeholder="nach PLZ filtern"
+        placeholder="Nach deiner PLZ filtern..."
       />
       <StyledList>
         {filteredDonations.map((donation) => {
