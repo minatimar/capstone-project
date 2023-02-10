@@ -1,18 +1,29 @@
 import styled from "styled-components";
 import DonationListItem from "@/components/DonationListItem";
+import { useState } from "react";
 
 export default function AllDonations({
   donations,
   myUserID,
   handleEditDonation,
 }) {
-  const filteredDonations = donations.filter(
-    (donations) => donations.userID != myUserID
-  );
+  const [zipCode, setZipCode] = useState("");
+
+  const filteredDonations = donations
+    .filter((donation) => donation.userID != myUserID)
+    .filter((donation) => donation.zipCode.includes(zipCode));
 
   return (
     <>
       <h2> Spenden in deiner Nähe: </h2>
+      <input
+        type="text"
+        pattern="^[2-9][0-9][0-9][0-9][0-9]$"
+        title="Bitte 5-stellige PLZ eingeben"
+        value={zipCode}
+        onChange={(event) => setZipCode(event.target.value)}
+        placeholder="Nach deiner PLZ filtern..."
+      />
       <StyledList>
         {filteredDonations.map((donation) => {
           return (
