@@ -70,7 +70,7 @@ export default function AddDonation({ createDonation }) {
             id="district"
             name="district"
             title="Bitte Stadtteil angeben"
-            pattern="^[a-zA-ZäüöÄÜÖß0-9 _+&*.,:;!?()%]+"
+            pattern="^[a-zA-ZäüöÄÜÖß _+&*.,:;()]+"
             maxLength="20"
           />
 
@@ -80,7 +80,7 @@ export default function AddDonation({ createDonation }) {
             id="contactInformation"
             name="contactInformation"
             maxLength="25"
-            pattern="^[a-zA-ZäüöÄÜÖß0-9 @_+&*.,:]+"
+            pattern="^[a-zA-Z0-9 @_+&*.,:]+"
             required
           />
 
@@ -120,6 +120,7 @@ const StyledForm = styled.form`
   align-items: center;
   border: solid red 2px;
   word-wrap: break-word;
+  word-break: break-word;
 `;
 
 const StyledButton = styled.button`
@@ -133,4 +134,5 @@ const StyledButton = styled.button`
   align-items: center;
   border: solid green 2px;
   background-color: green;
+  width: 94%;
 `;

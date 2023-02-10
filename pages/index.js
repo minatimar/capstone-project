@@ -1,51 +1,53 @@
 import styled from "styled-components";
-import DonationListItem from "@/components/DonationListItem";
+import logoHomepage from "../assets/logoHomepage.png";
+import Image from "next/image";
 
-export default function HomePage({ donations, myUserID, handleEditDonation }) {
-  const filteredDonations = donations.filter(
-    (donations) => donations.userID != myUserID
-  );
-
+export default function HomePage() {
   return (
-    <>
-      <h2> Spenden in deiner Nähe: </h2>
-      <StyledList>
-        {filteredDonations.map((donation) => {
-          return (
-            <DonationListItem
-              key={donation.id}
-              donation={donation}
-              donations={donations}
-              handleEditDonation={handleEditDonation}
-              myUserID={myUserID}
-            />
-          );
-        })}
-      </StyledList>
-
-      <StyledNavigation as="a" myUserID={myUserID} href={"/myDonations"}>
-        Ich möchte spenden!
-      </StyledNavigation>
-    </>
+    <Wrapper>
+      <StyledImage>
+        <Image
+          src={logoHomepage}
+          alt="Essensretter Willkommen Logo"
+          width={300}
+          height={300}
+        />
+      </StyledImage>
+      <StyledSection>
+        <StyledButton as="a" href={"/myDonations"}>
+          Ich möchte spenden!
+        </StyledButton>
+        <StyledButton as="a" href={"/allDonations"}>
+          Ich möchte retten!
+        </StyledButton>
+      </StyledSection>
+    </Wrapper>
   );
 }
 
-const StyledNavigation = styled.nav`
-  z-index: 1;
-  text-align: center;
-  justify-content: center;
-  position: fixed;
+const StyledButton = styled.button`
+  border-radius: 8px;
+  gap: 5px;
+  margin: 10px;
+  padding: 20px;
+  border: solid green 2px;
   background-color: green;
-  padding: 10px 10px 10px 10px;
-  margin: 0;
-  width: 100%;
-  bottom: 0;
-  color: black;
   text-decoration: none;
+  color: black;
 `;
-
-const StyledList = styled.ul`
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
+const StyledSection = styled.section`
+  display: flex;
+  justify-content: center;
+`;
+const StyledImage = styled.div`
+  top: 0;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+`;
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

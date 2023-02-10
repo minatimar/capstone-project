@@ -35,7 +35,9 @@ export default function DonationListItem({
           <StyledCard>
             <p>{donation.image}</p>
             <p>Kategorie: {donation.category}</p>
-            <p>Beschreibung: {donation.description}</p>
+            <StyledDiscription>
+              Beschreibung: {donation.description}
+            </StyledDiscription>
             <p>Haltbar bis: {donation.bestBefore}</p>
             <p>PLZ: {donation.zipCode}</p>
             <p>Stadtteil: Hamburg- {donation.district}</p>
@@ -104,7 +106,9 @@ export default function DonationListItem({
         ) : (
           <StyledCard>
             <p>{donation.image}</p>
-            <p>Beschreibung: {donation.description}</p>
+            <StyledDiscription>
+              Beschreibung: {donation.description}
+            </StyledDiscription>
             <p>PLZ: {donation.zipCode}</p>
             <p>Stadtteil: Hamburg- {donation.district}</p>
             <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
@@ -152,4 +156,8 @@ const StyledCard = styled.li`
   justify-content: center;
   align-items: center;
   border: solid black 2px;
+`;
+
+const StyledDiscription = styled.p`
+  word-break: break-all;
 `;
