@@ -12,4 +12,7 @@ export default function TextLengthCounter({ max, counter }) {
 
 const CharacterCounter = styled.p`
   font-size: 10px;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
 `;
