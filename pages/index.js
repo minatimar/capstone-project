@@ -1,53 +1,68 @@
 import styled from "styled-components";
-import logoHomepage from "../assets/logoHomepage.png";
+import myLogo from "../assets/myLogo.png";
 import Image from "next/image";
 
 export default function HomePage() {
   return (
     <Wrapper>
       <StyledImage>
-        <Image
-          src={logoHomepage}
-          alt="Essensretter Willkommen Logo"
-          width={300}
-          height={300}
-        />
+        <Image src={myLogo} alt="Essensretter Logo" width={450} height={450} />
       </StyledImage>
       <StyledSection>
-        <StyledButton as="a" href={"/myDonations"}>
+        <StyledDonationButton as="a" href={"/myDonations"}>
           Ich möchte spenden!
-        </StyledButton>
-        <StyledButton as="a" href={"/allDonations"}>
+        </StyledDonationButton>
+        <StyledSaveButton as="a" href={"/allDonations"}>
           Ich möchte retten!
-        </StyledButton>
+        </StyledSaveButton>
       </StyledSection>
     </Wrapper>
   );
 }
 
-const StyledButton = styled.button`
-  border-radius: 8px;
+const StyledDonationButton = styled.button`
+  border-radius: 50px;
   gap: 5px;
   margin: 10px;
   padding: 20px;
-  border: solid green 2px;
-  background-color: green;
+  background-color: #008000;
   text-decoration: none;
-  color: black;
+  color: white;
+  width: 80%;
+  text-align: center;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+`;
+const StyledSaveButton = styled.button`
+  border-radius: 50px;
+  gap: 5px;
+  margin: 10px;
+  padding: 20px;
+  /* border: solid green 2px; */
+  background-color: #008000;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  width: 80%;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
 `;
 const StyledSection = styled.section`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
+
 const StyledImage = styled.div`
-  top: 0;
   text-align: center;
-  width: 100%;
   padding: 0;
   margin: 0;
   background-color: white;
+  display: flex;
+  justify-content: center;
+  background-color: #f7fbf5;
 `;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  width: 100%;
 `;

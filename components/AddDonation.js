@@ -22,12 +22,14 @@ export default function AddDonation({ createDonation }) {
   return (
     <StyledDiv>
       {!isFormVisible ? (
-        <StyledButton onClick={() => setIsFormVisible(!isFormVisible)}>
+        <StyledNewDonationButton
+          onClick={() => setIsFormVisible(!isFormVisible)}
+        >
           Neue Spende hinzufügen
-        </StyledButton>
+        </StyledNewDonationButton>
       ) : (
         <StyledForm onSubmit={handleSubmit}>
-          <label htmlFor="category">Kategorie:</label>
+          {/* <label htmlFor="category">Kategorie:</label> */}
           <select name="category" id="category" required>
             <option value="">-Wähle bitte eine Kategorie-</option>
             {categoryData.map((category) => (
@@ -36,7 +38,6 @@ export default function AddDonation({ createDonation }) {
               </option>
             ))}
           </select>
-
           <label htmlFor="description">Beschreibung:</label>
           <textarea
             type="text"
@@ -50,10 +51,8 @@ export default function AddDonation({ createDonation }) {
             required
           />
           <TextLengthCounter max={250} counter={count} />
-
           <label htmlFor="bestBefore">Haltbar bis:</label>
           <input type="date" id="bestBefore" name="bestBefore" required />
-
           <label htmlFor="zipCode">Postleitzahl:</label>
           <input
             type="text"
@@ -63,7 +62,6 @@ export default function AddDonation({ createDonation }) {
             title="Bitte 5-stellige PLZ eingeben"
             required
           />
-
           <label htmlFor="district"> Stadtteil: Hamburg-</label>
           <input
             type="input"
@@ -73,66 +71,110 @@ export default function AddDonation({ createDonation }) {
             pattern="^[a-zA-ZäüöÄÜÖß _+&*.,:;()]+"
             maxLength="20"
           />
-
           <label htmlFor="contactInformation">Kontaktinformation:</label>
           <input
             type="input"
             id="contactInformation"
             name="contactInformation"
             maxLength="25"
-            pattern="^[a-zA-Z0-9 @_+&*.,:]+"
+            pattern="^[a-zA-Z0-9 @_+&*.,/:]+"
             required
           />
-
-          <label htmlFor="isBio">Bio</label>
-          <input type="checkbox" id="isBio" name="isBio" />
-
-          <label htmlFor="isVegetarian">Vegetarisch</label>
-          <input type="checkbox" id="isVegetarian" name="isVegetarian" />
-          <label htmlFor="isVegan">Vegan</label>
-          <input type="checkbox" id="isVegan" name="isVegan" />
-
-          <label htmlFor="isGlutenfree">Glutenfrei</label>
-          <input type="checkbox" id="isGlutenfree" name="isGlutenfree" />
-
-          <button onClick={() => setIsFormVisible(!isFormVisible)}>
-            zurück
-          </button>
-          <button type="submit">speichern</button>
+          <StyledCheckbox>
+            <div>
+              <input type="checkbox" id="isBio" name="isBio" />
+              <label htmlFor="isBio">Bio</label>
+            </div>
+            <div>
+              <input type="checkbox" id="isVegetarian" name="isVegetarian" />
+              <label htmlFor="isVegetarian">Vegetarisch</label>
+            </div>
+            <div>
+              <input type="checkbox" id="isVegan" name="isVegan" />
+              <label htmlFor="isVegan">Vegan</label>
+            </div>
+            <div>
+              <input type="checkbox" id="isGlutenfree" name="isGlutenfree" />
+              <label htmlFor="isGlutenfree">Glutenfrei</label>
+            </div>
+          </StyledCheckbox>
+          <StyledSection>
+            <StyledBackButton onClick={() => setIsFormVisible(!isFormVisible)}>
+              zurück
+            </StyledBackButton>
+            <StyledSaveButton type="submit">speichern</StyledSaveButton>
+          </StyledSection>
         </StyledForm>
       )}
     </StyledDiv>
   );
 }
 
+const StyledSection = styled.section`
+  display: flex;
+  display: inline - block;
+  margin-top: 0px;
+`;
+
+const StyledBackButton = styled.button`
+  margin-right: 90px;
+  background-color: #008000;
+  border-radius: 50px;
+  width: 100px;
+  color: white;
+  border: #008000 0.5px;
+  box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.5);
+`;
+const StyledSaveButton = styled.button`
+  border-radius: 50px;
+  background-color: #69aa58;
+  width: 100px;
+  padding: 5px 5px;
+  color: white;
+  border: #69aa58 0.5px;
+  box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.5);
+`;
+
+const StyledCheckbox = styled.div`
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  padding-top: 0px;
+  display: grid;
+  grid-row-gap: 7px;
+  grid-template-columns: 0.5fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr;
+  width: 68%;
+`;
+
 const StyledDiv = styled.div`
-  align-items: center;
+  text-align: center;
 `;
 
 const StyledForm = styled.form`
   border-radius: 8px;
-  gap: 10px;
-  margin: 10px;
-  padding: 80px;
+  gap: 5px;
+  margin: 20px;
+  padding: 13px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border: solid red 2px;
+  text-align: left;
+  border: solid black 1px;
   word-wrap: break-word;
   word-break: break-word;
 `;
 
-const StyledButton = styled.button`
-  border-radius: 8px;
-  gap: 10px;
-  margin: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: solid green 2px;
-  background-color: green;
-  width: 94%;
+const StyledNewDonationButton = styled.button`
+  border-radius: 50px;
+  margin: 18px 0px 0px 0px;
+  padding: 7px;
+  background-color: #008000;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  width: 100%;
+  border: #008000 0.5px;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
+  font-size: 14px;
 `;

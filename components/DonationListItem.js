@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { useState } from "react";
 import EditDonation from "./EditDonation";
+import Image from "next/image";
 
 export default function DonationListItem({
   donation,
   myUserID,
-  donations,
   setDonations,
   handleDelete,
   handleEditDonation,
@@ -33,58 +33,81 @@ export default function DonationListItem({
           </StyledCard>
         ) : (
           <StyledCard>
-            <p>{donation.image}</p>
-            <p>Kategorie: {donation.category}</p>
-            <StyledDiscription>
-              Beschreibung: {donation.description}
-            </StyledDiscription>
-            <p>Haltbar bis: {donation.bestBefore}</p>
-            <p>PLZ: {donation.zipCode}</p>
-            <p>Stadtteil: Hamburg- {donation.district}</p>
-            <p>Kontakt: {donation.contactInformation}</p>
-            <label htmlFor="isBio">Bio</label>
-            <input
-              type="checkbox"
-              id="isBio"
-              name="checkbox1"
-              checked={donation.isBio}
-              readOnly
-            />
-            <label htmlFor="isVegetarian">Vegetarisch</label>
-            <input
-              type="checkbox"
-              id="isVegetarian"
-              name="checkbox2"
-              checked={donation.isVegetarian}
-              readOnly
-            />
-            <label htmlFor="isVegan">Vegan</label>
-            <input
-              type="checkbox"
-              id="isVegan"
-              name="checkbox3"
-              checked={donation.isVegan}
-              readOnly
-            />
-            <label htmlFor="isGlutenfree">Glutenfrei</label>
-            <input
-              type="checkbox"
-              id="isGlutenfree"
-              name="checkbox4"
-              checked={donation.isGlutenfree}
-              readOnly
-            />
-            <StyledLessInfoButton type="button" onClick={() => handleClick()}>
-              Weniger Infos
-            </StyledLessInfoButton>
-            {donation.userID === myUserID && (
-              <StyledEditButton
-                type="button"
-                onClick={() => setIsEdit(!isEdit)}
-              >
-                Bearbeiten
-              </StyledEditButton>
-            )}
+            <StyledImageGroß>
+              <Image
+                src={donation.image}
+                alt="Hier Foto hochladen"
+                width={190}
+                height={100}
+              />
+            </StyledImageGroß>
+
+            <StyledP>
+              <p>Kategorie: {donation.category}</p>
+              <p>{donation.description}</p>
+              <p>Haltbar bis: {donation.bestBefore}</p>
+              <p>
+                {donation.zipCode} Hamburg- {donation.district}
+              </p>
+              <p>Kontakt: {donation.contactInformation}</p>
+            </StyledP>
+            <StyledCheckbox>
+              <div>
+                <input
+                  type="checkbox"
+                  id="isBio"
+                  name="checkbox1"
+                  checked={donation.isBio}
+                  readOnly
+                />
+                <label htmlFor="isBio">Bio</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  id="isVegetarian"
+                  name="checkbox2"
+                  checked={donation.isVegetarian}
+                  readOnly
+                />
+                <label htmlFor="isVegetarian">Vegetarisch</label>
+              </div>
+              {/* </StyledCheckbox>
+            <StyledCheckbox> */}
+              <div>
+                <input
+                  type="checkbox"
+                  id="isVegan"
+                  name="checkbox3"
+                  checked={donation.isVegan}
+                  readOnly
+                />
+                <label htmlFor="isVegan">Vegan</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  id="isGlutenfree"
+                  name="checkbox4"
+                  checked={donation.isGlutenfree}
+                  readOnly
+                />
+                <label htmlFor="isGlutenfree">Glutenfrei</label>
+              </div>
+            </StyledCheckbox>
+            <StyledSection>
+              <StyledLessInfoButton type="button" onClick={() => handleClick()}>
+                Weniger Infos
+              </StyledLessInfoButton>
+              {donation.userID === myUserID && (
+                <StyledEditButton
+                  type="button"
+                  onClick={() => setIsEdit(!isEdit)}
+                >
+                  Bearbeiten
+                </StyledEditButton>
+              )}
+            </StyledSection>
           </StyledCard>
         )}
       </>
@@ -105,23 +128,34 @@ export default function DonationListItem({
           </StyledCard>
         ) : (
           <StyledCard>
-            <p>{donation.image}</p>
-            <StyledDiscription>
-              Beschreibung: {donation.description}
-            </StyledDiscription>
-            <p>PLZ: {donation.zipCode}</p>
-            <p>Stadtteil: Hamburg- {donation.district}</p>
-            <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
-              Mehr Infos
-            </StyledMoreInfoButton>
-            {donation.userID === myUserID && (
-              <StyledDeleteButton
-                type="button"
-                onClick={() => handleDelete(donation.id)}
-              >
-                Löschen
-              </StyledDeleteButton>
-            )}
+            <StyledPara>
+              <StyledImageKlein>
+                <Image
+                  src={donation.image}
+                  alt="picture"
+                  width={190}
+                  height={100}
+                />
+              </StyledImageKlein>
+              <p>{donation.description}</p>
+              <p>Haltbar bis: {donation.bestBefore}</p>
+              <p>
+                {donation.zipCode} Hamburg- {donation.district}
+              </p>
+            </StyledPara>
+            <StyledSection>
+              <StyledMoreInfoButton type="button" onClick={() => handleClick()}>
+                Mehr Infos
+              </StyledMoreInfoButton>
+              {donation.userID === myUserID && (
+                <StyledDeleteButton
+                  type="button"
+                  onClick={() => handleDelete(donation.id)}
+                >
+                  Löschen
+                </StyledDeleteButton>
+              )}
+            </StyledSection>
           </StyledCard>
         )}
       </>
@@ -129,35 +163,110 @@ export default function DonationListItem({
   }
 }
 
-const StyledLessInfoButton = styled.button`
-  border: solid red;
-  background-color: red;
-`;
-const StyledMoreInfoButton = styled.button`
-  border: solid green;
-  background-color: green;
+const StyledImageKlein = styled.div`
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
 `;
 
-const StyledDeleteButton = styled.button`
-  border: solid red;
-  background-color: red;
+const StyledImageGroß = styled.div`
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-bottom: 0px;
 `;
-const StyledEditButton = styled.button`
-  border: solid pink;
-  background-color: pink;
-`;
+
 const StyledCard = styled.li`
-  border-radius: 8px;
-  gap: 10px;
-  margin: 10px;
-  padding: 20px;
+  box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.5);
+  margin-left: 20px;
+  margin-right: 20px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+  gap: 0px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: solid black 2px;
+  border: solid black 1px;
+  background-color: #f7fbf5;
+  :last-child {
+    margin-bottom: 50px;
+  }
+  :first-child {
+    margin-top: 0px;
+  }
 `;
 
-const StyledDiscription = styled.p`
+const StyledCheckbox = styled.div`
+  //display: inline-block;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  padding-top: 0px;
+  display: grid;
+  grid-row-gap: 7px;
+  grid-template-columns: 0.5fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr;
+  width: 68%;
+`;
+
+const StyledSection = styled.section`
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin-top: 5px;
+  //  display: inline - block;
+  //margin-top: 0px;
+  margin-bottom: 5px;
+`;
+const StyledP = styled.p`
   word-break: break-all;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-top: 0px;
+`;
+
+const StyledPara = styled.div`
+  word-break: break-all;
+  line-height: 1;
+`;
+const StyledDeleteButton = styled.button`
+  border-radius: 50px;
+  background-color: #69aa58;
+  width: 100px;
+  color: white;
+  border: #69aa58 0.5px;
+  padding: 5px 5px;
+  box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.5);
+`;
+const StyledMoreInfoButton = styled.button`
+  padding: 5px 5px;
+  background-color: #008000;
+  border-radius: 50px;
+  width: 100px;
+  color: white;
+  border: #008000 0.5px;
+  box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.5);
+`;
+const StyledEditButton = styled.button`
+  //margin-right: 100px;
+  background-color: #69aa58;
+  border: #69aa58 0.5px;
+  border-radius: 50px;
+  width: 100px;
+  color: white;
+  box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.5);
+`;
+const StyledLessInfoButton = styled.button`
+  border-radius: 50px;
+  background-color: #008000;
+  width: 100px;
+  padding: 5px 5px;
+  color: white;
+  border: #008000 0.5px;
+  box-shadow: 5px 5px 15px -3px rgba(0, 0, 0, 0.5);
 `;
